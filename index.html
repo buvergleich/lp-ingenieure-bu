@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>BU Landingpage – Ingenieure & Architekten</title>
 
+  <meta name="description" content="Kostenloser BU Vergleich für Ingenieure und Architekten. Kurzgespräch 10 bis 15 Minuten. Unverbindlich anfragen." />
+
   <style>
     :root{
       --page:#f6f7f6;
@@ -37,7 +39,7 @@
         linear-gradient(180deg, var(--page), var(--page2));
       line-height:1.5;
     }
-    .wrap{max-width:var(--max); margin:auto; padding:18px 16px 70px;}
+    .wrap{max-width:var(--max); margin:auto; padding:18px 16px 90px;}
 
     header{
       background:var(--surface);
@@ -65,7 +67,6 @@
       border:1px solid var(--line);
       padding:6px;
     }
-
     .logo small{display:block; color:var(--muted); font-weight:700}
     .topCta{
       display:flex; gap:10px; align-items:center; flex-wrap:wrap;
@@ -199,7 +200,7 @@
     .formTitle span{color:var(--muted); font-weight:650; font-size:13px;}
     form{display:grid; gap:12px; margin-top:12px;}
     label{font-weight:900; font-size:13px;}
-    input, select, textarea{
+    input, select{
       width:100%;
       padding:12px;
       border-radius:12px;
@@ -208,7 +209,7 @@
       color: var(--text);
       outline:none;
     }
-    input:focus, select:focus, textarea:focus{
+    input:focus, select:focus{
       border-color: rgba(15,123,61,.45);
       box-shadow: 0 0 0 4px rgba(34,168,91,.10);
       background:#fff;
@@ -225,31 +226,127 @@
     .consent input{width:auto; margin-top:3px;}
     .fineprint{color:var(--muted); font-size:12px; margin-top:4px;}
 
-    .notice{
-      display:none;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid rgba(0,0,0,.12);
-      background: var(--surface2);
-      color: var(--text);
-      font-weight:800;
-    }
-    .notice.ok{
-      border-color: rgba(34,168,91,.35);
-      background: rgba(34,168,91,.10);
-    }
-    .notice.err{
-      border-color: rgba(220,0,0,.25);
-      background: rgba(220,0,0,.07);
-    }
-
     footer{
       margin-top: 18px;
       text-align:center;
       color:var(--muted);
       font-size:12px;
     }
+
+    .cookieBanner{
+      position:fixed;
+      left:12px;
+      right:12px;
+      bottom:12px;
+      max-width:1100px;
+      margin:auto;
+      background:#ffffff;
+      border:1px solid rgba(0,0,0,.14);
+      box-shadow:0 18px 40px rgba(0,0,0,.14);
+      border-radius:16px;
+      padding:14px;
+      display:none;
+      z-index:9999;
+    }
+    .cookieRow{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .cookieText{
+      color:var(--text);
+      font-weight:750;
+      font-size:13px;
+      max-width:760px;
+    }
+    .cookieText a{
+      color:var(--brand3);
+      font-weight:950;
+      text-decoration:none;
+    }
+    .cookieActions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .cookieBtn{
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,.12);
+      font-weight:950;
+      cursor:pointer;
+      background:var(--surface2);
+      color:var(--text);
+    }
+    .cookieBtn.primary{
+      background: linear-gradient(180deg, var(--brand2), var(--brand));
+      color:#fff;
+      border-color: rgba(15,123,61,.35);
+    }
   </style>
+
+  <script>
+    const PIXEL_ID = "DEIN_PIXEL_ID";
+
+    function loadMetaPixel() {
+      if (!PIXEL_ID || PIXEL_ID === "DEIN_PIXEL_ID") return;
+      if (window.fbq) return;
+
+      (function(f,b,e,v,n,t,s){
+        if(f.fbq) return;
+        n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq) f._fbq=n;
+        n.push=n; n.loaded=!0; n.version='2.0';
+        n.queue=[];
+        t=b.createElement(e); t.async=!0; t.src=v;
+        s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)
+      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', PIXEL_ID);
+      fbq('track', 'PageView');
+    }
+
+    function hasConsent() {
+      return localStorage.getItem("cookieConsentMarketing") === "yes";
+    }
+
+    function setConsent(value) {
+      localStorage.setItem("cookieConsentMarketing", value ? "yes" : "no");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const banner = document.getElementById("cookieBanner");
+      const acceptBtn = document.getElementById("cookieAccept");
+      const declineBtn = document.getElementById("cookieDecline");
+
+      if (!localStorage.getItem("cookieConsentMarketing")) {
+        banner.style.display = "block";
+      } else {
+        if (hasConsent()) loadMetaPixel();
+      }
+
+      acceptBtn.addEventListener("click", () => {
+        setConsent(true);
+        banner.style.display = "none";
+        loadMetaPixel();
+      });
+
+      declineBtn.addEventListener("click", () => {
+        setConsent(false);
+        banner.style.display = "none";
+      });
+
+      const form = document.getElementById("buForm");
+      form.addEventListener("submit", () => {
+        if (hasConsent() && window.fbq) {
+          try { fbq("track", "Lead"); } catch (e) {}
+        }
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -257,32 +354,32 @@
 
     <header>
       <div class="logo">
-        <img src="assets/Logo.png" alt="Logo">
+        <img src="assets/Logo.png" alt="Logo" width="90" height="48" />
         <div>
           <div>HDI Hauptvertretung <span style="font-weight:950;">Farshid Tehrani</span></div>
-          <small>Köln/Bonn · Ingenieure & Architekten · Berufsunfähigkeit (BU)</small>
+          <small>Köln Bonn · Ingenieure und Architekten · Berufsunfähigkeit</small>
         </div>
       </div>
       <div class="topCta">
-        <span>📞 <a href="tel:+4915566518738" style="color:var(--text);text-decoration:none;font-weight:950;">0155 665 18 738</a></span>
+        <span>Telefon <a href="tel:+4915566518738" style="color:var(--text);text-decoration:none;font-weight:950;">0155 665 18 738</a></span>
         <a href="#formular">BU Vergleich anfragen</a>
       </div>
     </header>
 
     <section class="hero">
       <div class="card heroLeft">
-        <div class="badge">Kostenlos · 10 bis 15 Minuten · Köln/Bonn/NRW</div>
+        <div class="badge">Kostenlos · 10 bis 15 Minuten · Köln Bonn NRW</div>
 
-        <h1>BU schützt Ihr Einkommen – speziell für Ingenieure und Architekten</h1>
+        <h1>BU schützt Ihr Einkommen für Ingenieure und Architekten</h1>
         <p class="sub">
-          Kostenloser BU Vergleich: verständlich erklärt, auf Ihren Beruf abgestimmt, ohne Verpflichtung.
+          Kostenloser BU Vergleich. Verständlich erklärt. Auf Ihren Beruf abgestimmt. Ohne Verpflichtung.
         </p>
 
         <ul>
           <li><span class="tick">✓</span><span>Welche BU Rente ist sinnvoll</span></li>
           <li><span class="tick">✓</span><span>Wichtige BU Klauseln einfach erklärt</span></li>
-          <li><span class="tick">✓</span><span>Vergleich von Optionen, klare Empfehlung</span></li>
-          <li><span class="tick">✓</span><span>Optional: Ersteinschätzung zur Gesundheitsprüfung, nicht im Formular</span></li>
+          <li><span class="tick">✓</span><span>Vergleich von Optionen mit klarer Empfehlung</span></li>
+          <li><span class="tick">✓</span><span>Optional: Ersteinschätzung zur Gesundheitsprüfung nicht im Formular</span></li>
         </ul>
 
         <div class="ctaRow">
@@ -295,7 +392,7 @@
 
       <div class="heroRight">
         <div class="imgBox">
-          <img src="assets/hero.jpg" alt="Ingenieur / Architekt im Büro">
+          <img src="assets/hero.jpg" alt="Ingenieur oder Architekt im Büro" width="900" height="600" loading="eager" />
         </div>
 
         <div class="panel">
@@ -327,14 +424,10 @@
           <span>Rückmeldung zeitnah</span>
         </div>
 
-        <div id="notice" class="notice" role="status" aria-live="polite"></div>
-
         <form id="buForm" action="https://formspree.io/f/xkogldbd" method="POST">
-          <input type="hidden" name="landingpage" value="LP02 BU Ingenieure und Architekten">
-          <input type="hidden" name="zielgruppe" value="Ingenieure und Architekten">
-          <input type="hidden" name="anfrage" value="BU Vergleich">
-          <input type="hidden" name="_subject" value="LP02 Ingenieure und Architekten BU Vergleich">
-          <input type="hidden" name="_format" value="plain">
+          <input type="hidden" name="landingpage" value="LP02 BU Ingenieure und Architekten" />
+          <input type="hidden" name="zielgruppe" value="Ingenieure und Architekten" />
+          <input type="hidden" name="anfrage" value="BU Vergleich" />
 
           <div class="row">
             <div>
@@ -366,12 +459,12 @@
             <input id="consent" name="consent" type="checkbox" required />
             <div>
               Ich willige ein, dass meine Angaben zur Kontaktaufnahme verarbeitet werden.
-              <a href="#" style="font-weight:900; color:var(--brand3); text-decoration:none;">Datenschutzerklärung</a>
+              <a href="HIER_DEIN_DATENSCHUTZ_LINK" style="font-weight:900; color:var(--brand3); text-decoration:none;" target="_blank" rel="noopener">Datenschutzerklärung</a>
               gelesen.*
             </div>
           </div>
 
-          <button id="submitBtn" class="btn" type="submit">BU Anfrage absenden</button>
+          <button class="btn" type="submit">BU Anfrage absenden</button>
 
           <div class="fineprint">
             Transparenzhinweis: Tätigkeit als Versicherungsvertreter gemäß §34d GewO. HDI Hauptvertretung.
@@ -384,64 +477,10 @@
       <div class="card formCard">
         <div class="formTitle">
           <b>Kontakt</b>
-          <span>Köln/Bonn · NRW</span>
+          <span>Köln Bonn NRW</span>
         </div>
 
         <div style="display:grid;gap:8px;margin-top:12px;color:var(--muted);font-weight:650;">
           <div><b style="color:var(--text)">HDI Hauptvertretung Farshid Tehrani</b></div>
           <div>Adresse: St. Augustiner Str. 133, 53225 Bonn Beuel</div>
-          <div>Telefon: <a href="tel:+4915566518738" style="color:var(--brand3);font-weight:900;text-decoration:none;">0155 665 18 738</a></div>
-          <div>E Mail: <a href="mailto:farshid.tehrani@hdi.de" style="color:var(--brand3);font-weight:900;text-decoration:none;">farshid.tehrani@hdi.de</a></div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      Fokus: Berufsunfähigkeit für Ingenieure und Architekten. 1 Angebot. 1 Formular.
-    </footer>
-
-  </div>
-
-  <script>
-    const form = document.getElementById("buForm");
-    const btn = document.getElementById("submitBtn");
-    const notice = document.getElementById("notice");
-
-    function showNotice(type, text) {
-      notice.className = "notice " + type;
-      notice.textContent = text;
-      notice.style.display = "block";
-    }
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      btn.disabled = true;
-      const originalText = btn.textContent;
-      btn.textContent = "Sende";
-
-      try {
-        const formData = new FormData(form);
-
-        const resp = await fetch(form.action, {
-          method: "POST",
-          body: formData,
-          headers: { "Accept": "application/json" }
-        });
-
-        if (resp.ok) {
-          showNotice("ok", "Danke. Ihre Anfrage wurde gesendet. Wir melden uns zeitnah.");
-          form.reset();
-        } else {
-          showNotice("err", "Fehler beim Senden. Bitte nochmal versuchen oder telefonisch melden.");
-        }
-      } catch (err) {
-        showNotice("err", "Netzwerkfehler. Bitte nochmal versuchen.");
-      } finally {
-        btn.disabled = false;
-        btn.textContent = originalText;
-      }
-    });
-  </script>
-</body>
-</html>
+          <div>Telefon: <a href="tel:+4915566518738" style="color:var(--brand3);font-weight:900;text-decoration:none;">0155 665
