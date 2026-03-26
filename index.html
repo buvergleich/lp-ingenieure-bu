@@ -407,31 +407,20 @@
     }
   </style>
 
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-DEINE_GOOGLE_ADS_ID"></script>
   <script>
-    const PIXEL_ID = "DEIN_PIXEL_ID";
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
 
-    function loadMetaPixel() {
-      if (!PIXEL_ID || PIXEL_ID === "DEIN_PIXEL_ID") return;
-      if (window.fbq) return;
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied'
+    });
 
-      (function(f,b,e,v,n,t,s){
-        if(f.fbq) return;
-        n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq) f._fbq=n;
-        n.push=n;
-        n.loaded=!0;
-        n.version='2.0';
-        n.queue=[];
-        t=b.createElement(e);
-        t.async=!0;
-        t.src=v;
-        s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s);
-      })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
-
-      fbq('init', PIXEL_ID);
-      fbq('track', 'PageView');
-    }
+    gtag('js', new Date());
+    gtag('config', 'AW-DEINE_GOOGLE_ADS_ID');
 
     function hasConsent() {
       return localStorage.getItem("cookieConsentMarketing") === "yes";
@@ -439,6 +428,24 @@
 
     function setConsent(value) {
       localStorage.setItem("cookieConsentMarketing", value ? "yes" : "no");
+    }
+
+    function applyConsent() {
+      if (hasConsent()) {
+        gtag('consent', 'update', {
+          ad_storage: 'granted',
+          ad_user_data: 'granted',
+          ad_personalization: 'granted',
+          analytics_storage: 'granted'
+        });
+      } else {
+        gtag('consent', 'update', {
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          analytics_storage: 'denied'
+        });
+      }
     }
 
     function resetCookieSettings() {
@@ -455,32 +462,33 @@
       if (banner) {
         if (!localStorage.getItem("cookieConsentMarketing")) {
           banner.style.display = "block";
-        } else if (hasConsent()) {
-          loadMetaPixel();
+        } else {
+          applyConsent();
         }
       }
 
       if (acceptBtn && banner) {
         acceptBtn.addEventListener("click", () => {
           setConsent(true);
+          applyConsent();
           banner.style.display = "none";
-          loadMetaPixel();
         });
       }
 
       if (declineBtn && banner) {
         declineBtn.addEventListener("click", () => {
           setConsent(false);
+          applyConsent();
           banner.style.display = "none";
         });
       }
 
       if (form) {
         form.addEventListener("submit", () => {
-          if (hasConsent() && window.fbq) {
-            try {
-              fbq("track", "Lead");
-            } catch (e) {}
+          if (hasConsent()) {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-DEINE_GOOGLE_ADS_ID/DEIN_CONVERSION_LABEL'
+            });
           }
         });
       }
@@ -672,13 +680,12 @@
     <footer>
       © HDI Hauptvertretung Farshid Tehrani
     </footer>
-
   </div>
 
   <div class="cookieBanner" id="cookieBanner">
     <div class="cookieRow">
       <div class="cookieText">
-        Diese Website verwendet optionale Marketing-Technologien (z. B. Meta Pixel), um die Nutzung der Seite zu analysieren und Werbemaßnahmen zu verbessern. Diese Technologien werden nur mit Ihrer Einwilligung aktiviert. Details finden Sie in der
+        Diese Website verwendet optionale Marketing-Technologien (z. B. Google Ads Conversion Tracking), um die Nutzung der Seite zu analysieren und Werbemaßnahmen zu verbessern. Diese Technologien werden nur mit Ihrer Einwilligung aktiviert. Details finden Sie in der
         <a href="datenschutz.html" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>.
       </div>
       <div class="cookieActions">
