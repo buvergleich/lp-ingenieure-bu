@@ -405,6 +405,37 @@
       font-weight:900;
       text-decoration:none;
     }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      margin-top:16px;
+      color:var(--muted);
+      font-weight:650;
+      align-items:start;
+    }
+
+    .contact-col{
+      display:grid;
+      gap:12px;
+    }
+
+    .contact-label{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:2px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+
+    @media (max-width:700px){
+      .contact-grid{
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+    }
   </style>
 
   <script>
@@ -660,38 +691,50 @@
           <span>Deutschlandweit</span>
         </div>
 
-        <div class="link-list" style="display:grid;gap:8px;margin-top:12px;color:var(--muted);font-weight:650;">
-          <div><b style="color:var(--text)">HDI Hauptvertretung Farshid Tehrani</b></div>
-          <div>Adresse: St. Augustiner Str. 133, 53225 Bonn</div>
+        <div class="link-list contact-grid">
 
-          <div>
-            Telefon:
-            <a href="tel:+4915566518738">0155 665 18 738</a>
+          <div class="contact-col">
+            <div>
+              <b style="color:var(--text)">HDI Hauptvertretung Farshid Tehrani</b>
+            </div>
+
+            <div>
+              <span class="contact-label">Adresse</span>
+              <span>St. Augustiner Str. 133, 53225 Bonn</span>
+            </div>
+
+            <div>
+              <span class="contact-label">Telefon</span>
+              <a href="tel:+4915566518738">0155 665 18 738</a>
+            </div>
+
+            <div>
+              <span class="contact-label">E-Mail</span>
+              <a href="mailto:farshid.tehrani@hdi.de">farshid.tehrani@hdi.de</a>
+            </div>
           </div>
 
-          <div>
-            E-Mail:
-            <a href="mailto:farshid.tehrani@hdi.de">farshid.tehrani@hdi.de</a>
+          <div class="contact-col">
+            <div>
+              <a href="impressum.html">Impressum</a>
+            </div>
+
+            <div>
+              <a href="datenschutz.html">Datenschutzerklärung</a>
+            </div>
+
+            <div>
+              <a href="#" onclick="resetCookieSettings(); return false;">Cookie-Einstellungen zurücksetzen</a>
+            </div>
+
+            <div style="margin-top:6px;font-size:12px;line-height:1.5;color:var(--muted);">
+              Versicherungsvertreter gemäß §34d Abs. 1 GewO<br>
+              Registriert im Vermittlerregister der Deutschen Industrie- und Handelskammer (DIHK)<br>
+              Registrierungsnummer: <strong>D-HQ16-9MJZU-08</strong><br>
+              <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener noreferrer">www.vermittlerregister.info</a>
+            </div>
           </div>
 
-          <div style="margin-top:6px;">
-            <a href="impressum.html">Impressum</a>
-          </div>
-
-          <div>
-            <a href="datenschutz.html">Datenschutzerklärung</a>
-          </div>
-
-          <div>
-            <a href="#" onclick="resetCookieSettings(); return false;">Cookie-Einstellungen zurücksetzen</a>
-          </div>
-
-          <div style="margin-top:10px;font-size:12px;line-height:1.4;color:var(--muted);">
-            Versicherungsvertreter gemäß §34d Abs. 1 GewO<br>
-            Registriert im Vermittlerregister der Deutschen Industrie- und Handelskammer (DIHK)<br>
-            Registrierungsnummer: <strong>D-HQ16-9MJZU-08</strong><br>
-            <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener noreferrer">www.vermittlerregister.info</a>
-          </div>
         </div>
       </div>
     </section>
