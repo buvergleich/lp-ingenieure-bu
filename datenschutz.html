@@ -3,238 +3,163 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Datenschutzerklärung</title>
+  <title>Datenschutzerklärung | HDI Hauptvertretung Farshid Tehrani</title>
+  <meta name="robots" content="noindex,follow">
   <style>
-    body{
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.6;
-      color:#132018;
-      margin:0;
-      background:#f6f7f6;
-    }
-    .wrap{
-      max-width:900px;
-      margin:40px auto;
-      background:#fff;
-      padding:32px 24px;
-      border-radius:18px;
-      box-shadow:0 10px 30px rgba(0,0,0,.08);
-    }
-    h1,h2,h3{line-height:1.25}
-    a{color:#0b5e2f}
-    p,li{color:#24352b}
-    .back-link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
-      border-radius:12px;
-      background:#f1f4f2;
-      border:1px solid rgba(0,0,0,.10);
-      color:#0b5e2f;
-      font-weight:900;
-      text-decoration:none;
-    }
-  </style>
+:root{
+  --text:#132018;
+  --muted:#54665c;
+  --line:rgba(0,0,0,.10);
+  --brand:#0f7b3d;
+  --brand3:#0b5e2f;
+  --shadow:0 14px 30px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(800px 420px at 10% 0%, rgba(34,168,91,.12), transparent 60%),
+    linear-gradient(180deg,#f7f8f7,#fff);
+  line-height:1.6;
+}
+a{color:var(--brand3)}
+img{max-width:100%;display:block}
+.wrap{max-width:980px;margin:auto;padding:18px 18px 90px}
+.top{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)
+}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.logoBox{width:118px;flex:0 0 118px}
+.logoBox img{width:100%;height:auto;object-fit:contain}
+.brandText b{display:block;font-size:20px;line-height:1.15}
+.brandText small{display:block;color:var(--muted);margin-top:2px}
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.nav a{text-decoration:none;color:var(--brand3);font-weight:900}
+.page-card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:34px 28px;margin-top:16px}
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;padding:11px 14px;border-radius:12px;
+  background:#f1f4f2;border:1px solid rgba(0,0,0,.10);color:var(--brand3);font-weight:900;text-decoration:none
+}
+h1{font-size:42px;line-height:1.08;letter-spacing:-.03em;margin:18px 0 14px}
+h2{margin:26px 0 10px;font-size:26px;line-height:1.15}
+p,li{color:#24352b}
+ul{padding-left:22px}
+.note{margin-top:16px;padding:14px 16px;border-radius:16px;background:#f1f4f2;border:1px solid var(--line);color:var(--muted);font-size:14px}
+@media (max-width:760px){
+  .wrap{padding:12px 12px 72px}
+  .top{padding:12px 14px;align-items:flex-start}
+  .brand{align-items:flex-start;gap:10px;width:100%}
+  .logoBox{width:88px;flex:0 0 88px}
+  .brandText b{font-size:17px}
+  .brandText small{font-size:13px}
+  .nav{width:100%;gap:10px}
+  .nav a{font-size:14px}
+  .page-card{padding:24px 18px}
+  h1{font-size:34px}
+  h2{font-size:22px}
+}
+</style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Datenschutzerklärung</h1>
-
-    <div style="margin:0 0 24px;">
-      <a href="index.html" class="back-link">← Zurück zur Landingpage</a>
+    <div class="top">
+      <div class="brand">
+        <div class="logoBox"><img src="assets/Logo.png" alt="HDI Logo"></div>
+        <div class="brandText"><b>HDI Hauptvertretung Farshid Tehrani</b><small>Datenschutzerklärung</small></div>
+      </div>
+      <div class="nav"><a href="index.html">Landingpage</a><a href="impressum.html">Impressum</a><a href="cookie-richtlinie.html">Cookie-Richtlinie</a></div>
     </div>
 
-    <h2>1. Verantwortlicher</h2>
-    <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
-    <p>
-      <strong>HDI Hauptvertretung Farshid Tehrani</strong><br>
+    <div class="page-card">
+      <a href="index.html" class="back-link">← Zurück zur Landingpage</a>
+      <h1>Datenschutzerklärung</h1>
+
+      <h2>1. Verantwortlicher</h2>
+      <p><strong>HDI Hauptvertretung Farshid Tehrani</strong><br>
       St. Augustiner Str. 133<br>
       53225 Bonn<br>
       Telefon: 0155 665 18 738<br>
-      E-Mail: farshid.tehrani@hdi.de
-    </p>
+      E-Mail: farshid.tehrani@hdi.de</p>
 
-    <h2>2. Allgemeines zur Datenverarbeitung</h2>
-    <p>
-      Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Personenbezogene Daten werden auf dieser Website nur im Rahmen der gesetzlichen Vorschriften, insbesondere der Datenschutz-Grundverordnung (DSGVO), verarbeitet.
-    </p>
-    <p>
-      Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können, z. B. Name, Telefonnummer, E-Mail-Adresse, IP-Adresse oder Nutzungsdaten.
-    </p>
+      <h2>2. Allgemeines</h2>
+      <p>Der Schutz Ihrer personenbezogenen Daten ist uns wichtig. Personenbezogene Daten werden auf dieser Website ausschließlich im Rahmen der gesetzlichen Vorgaben verarbeitet, insbesondere nach der Datenschutz-Grundverordnung (DSGVO).</p>
 
-    <h2>3. Hosting und Aufruf der Website</h2>
-    <p>
-      Diese Website wird über GitHub Pages bereitgestellt. Beim Aufruf der Website werden technisch erforderliche Informationen verarbeitet, damit die Website im Browser angezeigt werden kann.
-    </p>
-    <p>Dabei können insbesondere folgende Daten verarbeitet werden:</p>
-    <ul>
-      <li>IP-Adresse</li>
-      <li>Datum und Uhrzeit des Abrufs</li>
-      <li>Browsertyp und Browserversion</li>
-      <li>Betriebssystem</li>
-      <li>Referrer-URL</li>
-      <li>aufgerufene Seiten bzw. Dateien</li>
-    </ul>
-    <p>
-      Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der sicheren, stabilen und technisch fehlerfreien Bereitstellung der Website.
-    </p>
+      <h2>3. Hosting und Aufruf der Website</h2>
+      <p>Diese Website wird über GitHub Pages bereitgestellt. Beim Aufruf der Website können technische Zugriffsdaten verarbeitet werden, insbesondere IP-Adresse, Datum und Uhrzeit des Abrufs, Browsertyp, Betriebssystem, Referrer-URL sowie aufgerufene Dateien oder Seiten. Diese Verarbeitung dient der sicheren, stabilen und technisch fehlerfreien Bereitstellung der Website.</p>
+      <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
 
-    <h2>4. Kontaktformular</h2>
-    <p>
-      Wenn Sie uns über das Formular auf der Website kontaktieren, verarbeiten wir die von Ihnen eingegebenen Daten zur Bearbeitung Ihrer Anfrage, zur Kontaktaufnahme mit Ihnen sowie zur Vorbereitung und Durchführung einer Beratung zu Versicherungsprodukten.
-    </p>
-    <p>Dabei können insbesondere folgende Daten verarbeitet werden:</p>
-    <ul>
-      <li>Name</li>
-      <li>Telefonnummer</li>
-      <li>E-Mail-Adresse</li>
-      <li>Berufsangabe</li>
-      <li>Inhalt und Zeitpunkt der Anfrage</li>
-    </ul>
-    <p>
-      Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage auf die Durchführung vorvertraglicher Maßnahmen oder die Anbahnung eines Vertrags gerichtet ist.
-    </p>
-    <p>
-      Soweit Sie im Formular ausdrücklich einwilligen, erfolgt die Verarbeitung zusätzlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO. Dies betrifft insbesondere die Verarbeitung Ihrer Angaben zur Kontaktaufnahme, auch telefonisch, sowie zur Beratung zu Versicherungsprodukten.
-    </p>
+      <h2>4. Lokale Dateien und statische Inhalte</h2>
+      <p>Bilder, Gestaltungselemente und sonstige statische Inhalte werden innerhalb der Website aus dem eigenen Projektordner geladen. Eine Auslieferung über externe Bild-CDNs oder externe Skriptbibliotheken erfolgt für diese Inhalte nicht.</p>
 
-    <h2>5. Spam-Schutz / technische Missbrauchserkennung</h2>
-    <p>
-      Zum Schutz unseres Kontaktformulars vor missbräuchlichen oder automatisierten Eingaben verwenden wir technische Maßnahmen zur Spam-Erkennung. Hierzu kann insbesondere ein zusätzliches, für normale Nutzer nicht sichtbares Formularfeld eingesetzt werden (sog. Honeypot-Feld).
-    </p>
-    <p>
-      Wird dieses Feld ausgefüllt, kann die Anfrage als automatisiert erkannt und nicht weiterverarbeitet werden.
-    </p>
-    <p>
-      Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt im Schutz unserer Website und Kommunikationskanäle vor Missbrauch, Spam und automatisierten Angriffen.
-    </p>
+      <h2>5. Kontaktformular</h2>
+      <p>Wenn Sie uns über das Formular kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage, zur Kontaktaufnahme mit Ihnen sowie zur Vorbereitung von Beratung und Vermittlung zu Versicherungsprodukten.</p>
+      <ul>
+        <li>Name</li>
+        <li>Telefonnummer</li>
+        <li>E-Mail-Adresse</li>
+        <li>Berufsangabe</li>
+        <li>freiwillige Zusatzangaben im Nachrichtenfeld</li>
+        <li>Inhalt und Zeitpunkt der Anfrage</li>
+      </ul>
+      <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage auf vorvertragliche Maßnahmen gerichtet ist. Soweit Sie im Formular ausdrücklich in die Kontaktaufnahme und Beratung einwilligen, erfolgt die Verarbeitung zusätzlich auf Grundlage von Art. 6 Abs. 1 lit. a DSGVO.</p>
 
-    <h2>6. Einsatz von Formspree</h2>
-    <p>
-      Für die technische Übermittlung der Formularanfragen nutzen wir den Dienst <strong>Formspree</strong>, angeboten von Formspree, Inc. Wenn Sie das Kontaktformular absenden, werden die eingegebenen Daten an Formspree übermittelt und dort technisch verarbeitet.
-    </p>
-    <p>
-      Die Übermittlung erfolgt technisch per Formularversand innerhalb der Website. Die Anfrage wird nur dann an Formspree übertragen, wenn Sie das Formular aktiv absenden.
-    </p>
-    <p>
-      Formspree wird als externer Formular-Dienstleister eingesetzt. Nach Angaben des Anbieters kann bei internationalen Datenübermittlungen der Einsatz von Standardvertragsklauseln (SCCs) erfolgen.
-    </p>
-    <p>
-      Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, Art. 6 Abs. 1 lit. a DSGVO sowie Art. 6 Abs. 1 lit. f DSGVO, jeweils abhängig vom Inhalt und Zweck Ihrer Anfrage.
-    </p>
-    <p>
-      Weitere Informationen finden Sie unter:
-      <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">formspree.io</a>
-      und
-      <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy Policy von Formspree</a>.
-    </p>
+      <h2>6. Spam-Schutz / Missbrauchserkennung</h2>
+      <p>Zum Schutz vor missbräuchlichen oder automatisierten Eingaben verwenden wir technische Maßnahmen zur Spam-Erkennung. Hierzu gehört insbesondere ein für normale Nutzer nicht sichtbares Formularfeld.</p>
+      <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Das berechtigte Interesse liegt im Schutz der Website und Kommunikationskanäle vor Missbrauch, Spam und automatisierten Eingaben.</p>
 
-    <h2>7. Cookies, ähnliche Technologien und Einwilligungsverwaltung</h2>
-    <p>
-      Diese Website verwendet ein Einwilligungsbanner für optionale Marketing- und Tracking-Funktionen. Ihre Auswahl wird lokal in Ihrem Browser gespeichert, damit Ihre Entscheidung bei späteren Besuchen berücksichtigt werden kann.
-    </p>
-    <p>
-      Dabei wird insbesondere gespeichert, ob Sie in den Einsatz optionaler Marketing-Technologien eingewilligt oder diese abgelehnt haben.
-    </p>
-    <p>
-      Soweit technisch notwendige Speicherungen zur Verwaltung Ihrer Einwilligung erfolgen, geschieht dies auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.
-    </p>
-    <p>
-      Soweit optionale Tracking-Technologien eingesetzt werden, erfolgt dies nur nach Ihrer ausdrücklichen Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.
-    </p>
-    <p>
-      Ihre Einwilligung können Sie jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie die Cookie-Einstellungen auf der Website zurücksetzen.
-    </p>
+      <h2>7. Einsatz von Formspree</h2>
+      <p>Für die technische Übermittlung der Formularanfragen nutzen wir den Dienst <strong>Formspree</strong>. Wenn Sie das Formular absenden, werden die eingegebenen Daten an Formspree übermittelt und dort technisch verarbeitet.</p>
+      <p>Weitere Informationen finden Sie unter <a href="https://formspree.io/" target="_blank" rel="noopener noreferrer">formspree.io</a> sowie in der <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Formspree</a>.</p>
 
-    <h2>8. Google Ads Conversion Tracking / Google Tag</h2>
-    <p>
-      Auf dieser Website ist Google Ads Conversion Tracking technisch eingebunden. Das Google-Tag wird nur dann vollständig für Marketingzwecke aktiviert, wenn Sie im Cookie-Banner ausdrücklich eingewilligt haben und in der Website eine gültige Google-Ads-ID sowie ein gültiges Conversion-Label hinterlegt wurden.
-    </p>
-    <p>
-      Sofern diese Voraussetzungen vorliegen, kann bei erfolgreicher Übermittlung des Kontaktformulars ein Conversion-Ereignis an Google übermittelt werden.
-    </p>
-    <p>
-      Im Rahmen des Google Ads Conversion Trackings können insbesondere folgende Daten verarbeitet werden:
-    </p>
-    <ul>
-      <li>IP-Adresse</li>
-      <li>Informationen zum Browser und Endgerät</li>
-      <li>besuchte Seiten</li>
-      <li>Zeitpunkt des Seitenaufrufs</li>
-      <li>Conversion-Daten im Zusammenhang mit erfolgreich übermittelten Formularanfragen</li>
-      <li>Informationen zu Werbeklicks und zugeordneten Conversions</li>
-    </ul>
-    <p>
-      Rechtsgrundlage ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.
-    </p>
+      <h2>8. Internationale Datenübermittlungen</h2>
+      <p>Je nach eingesetztem Dienstleister kann eine Verarbeitung personenbezogener Daten auch in Staaten außerhalb der Europäischen Union oder des Europäischen Wirtschaftsraums stattfinden, insbesondere in den USA. Dies betrifft nach den Angaben des Dienstleisters insbesondere Formspree.</p>
+      <p>Eine solche Übermittlung erfolgt ausschließlich im Rahmen der gesetzlichen Vorgaben. Soweit erforderlich, stützen wir uns auf geeignete Garantien oder die jeweils einschlägigen gesetzlichen Erlaubnistatbestände.</p>
 
-    <h2>9. Google Consent Mode</h2>
-    <p>
-      Auf dieser Website kann der Google Consent Mode eingesetzt werden. Dabei werden die Einwilligungssignale an Google übermittelt, um die Nutzung von Google-Diensten datenschutzbezogen zu steuern.
-    </p>
-    <p>
-      Ohne Ihre Einwilligung werden die Marketing-Speicherungen standardmäßig als nicht erlaubt behandelt. Eine Aktivierung von Marketing- bzw. Conversion-Tracking erfolgt erst nach Ihrer ausdrücklichen Zustimmung.
-    </p>
-    <p>
-      Der Einsatz des Consent Mode ersetzt keine Einwilligung, sondern dient ausschließlich der technischen Umsetzung Ihrer Auswahl.
-    </p>
+      <h2>9. Speicherung Ihrer Einwilligungsentscheidung</h2>
+      <p>Diese Website speichert lokal in Ihrem Browser, ob Sie einer Nutzung optionaler Technologien zugestimmt oder diese abgelehnt haben. Dadurch kann Ihre Auswahl bei späteren Besuchen berücksichtigt werden.</p>
 
-    <h2>10. Speicherdauer</h2>
-    <p>
-      Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Verarbeitungszwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.
-    </p>
-    <p>
-      Anfragen aus dem Kontaktformular werden grundsätzlich nur so lange gespeichert, wie dies zur Bearbeitung der Anfrage und für eine etwaige Anschlusskommunikation erforderlich ist, sofern keine gesetzlichen Aufbewahrungsfristen entgegenstehen.
-    </p>
-    <p>
-      Lokal gespeicherte Einwilligungsentscheidungen verbleiben grundsätzlich in Ihrem Browser, bis Sie diese selbst löschen oder die Cookie-Einstellungen auf der Website zurücksetzen.
-    </p>
+      <h2>10. Optional vorbereitete Marketing-Technologien</h2>
+      <p>Diese Website enthält eine technische Vorbereitung für optionales Marketing-Tracking. Solange keine gesonderte Aktivierung mit einer echten Tracking-Konfiguration erfolgt, werden keine solchen Marketing-Tags produktiv geladen. Soweit später optionale Marketing-Technologien aktiviert werden, erfolgt dies – soweit rechtlich erforderlich – nur nach Ihrer ausdrücklichen Einwilligung.</p>
 
-    <h2>11. Empfänger personenbezogener Daten</h2>
-    <p>
-      Eine Weitergabe Ihrer personenbezogenen Daten erfolgt nur, soweit dies zur Bearbeitung Ihrer Anfrage erforderlich ist, wir gesetzlich dazu verpflichtet sind oder Sie eingewilligt haben.
-    </p>
-    <p>Empfänger können insbesondere sein:</p>
-    <ul>
-      <li>technische Dienstleister für Hosting und Bereitstellung der Website</li>
-      <li>Formspree als Formular-Dienstleister</li>
-      <li>Google bei erteilter Einwilligung zum Google Ads Conversion Tracking, sofern Tracking technisch aktiviert ist</li>
-    </ul>
+      <h2>11. Speicherdauer</h2>
+      <p>Wir speichern personenbezogene Daten nur so lange, wie dies für die jeweiligen Verarbeitungszwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen. Die lokal gespeicherte Einwilligungsentscheidung verbleibt in Ihrem Browser, bis Sie diese löschen oder die Cookie-Einstellungen auf der Website zurücksetzen.</p>
 
-    <h2>12. Ihre Rechte</h2>
-    <p>Ihnen stehen nach der DSGVO insbesondere folgende Rechte zu:</p>
-    <ul>
-      <li>Recht auf Auskunft gemäß Art. 15 DSGVO</li>
-      <li>Recht auf Berichtigung gemäß Art. 16 DSGVO</li>
-      <li>Recht auf Löschung gemäß Art. 17 DSGVO</li>
-      <li>Recht auf Einschränkung der Verarbeitung gemäß Art. 18 DSGVO</li>
-      <li>Recht auf Datenübertragbarkeit gemäß Art. 20 DSGVO</li>
-      <li>Recht auf Widerspruch gemäß Art. 21 DSGVO</li>
-      <li>Recht auf Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft</li>
-      <li>Beschwerderecht bei einer Datenschutzaufsichtsbehörde gemäß Art. 77 DSGVO</li>
-    </ul>
+      <h2>12. Empfänger personenbezogener Daten</h2>
+      <p>Empfänger können insbesondere sein:</p>
+      <ul>
+        <li>technische Dienstleister für Hosting und Bereitstellung der Website</li>
+        <li>Formspree als Formular-Dienstleister</li>
+        <li>gegebenenfalls künftig eingesetzte Marketing-Dienstleister, soweit eine gesonderte technische Aktivierung und – soweit erforderlich – eine Einwilligung vorliegen</li>
+      </ul>
 
-    <h2>13. Widerspruchsrecht</h2>
-    <p>
-      Soweit wir Ihre Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen die Verarbeitung einzulegen.
-    </p>
+      <h2>13. Ihre Rechte</h2>
+      <ul>
+        <li>Recht auf Auskunft gemäß Art. 15 DSGVO</li>
+        <li>Recht auf Berichtigung gemäß Art. 16 DSGVO</li>
+        <li>Recht auf Löschung gemäß Art. 17 DSGVO</li>
+        <li>Recht auf Einschränkung der Verarbeitung gemäß Art. 18 DSGVO</li>
+        <li>Recht auf Datenübertragbarkeit gemäß Art. 20 DSGVO</li>
+        <li>Recht auf Widerspruch gemäß Art. 21 DSGVO</li>
+        <li>Recht auf Widerruf erteilter Einwilligungen mit Wirkung für die Zukunft</li>
+        <li>Beschwerderecht bei einer Datenschutzaufsichtsbehörde gemäß Art. 77 DSGVO</li>
+      </ul>
 
-    <h2>14. Pflicht zur Bereitstellung von Daten</h2>
-    <p>
-      Die Bereitstellung Ihrer Daten über das Kontaktformular ist weder gesetzlich noch vertraglich vorgeschrieben. Ohne die erforderlichen Angaben können wir Ihre Anfrage jedoch gegebenenfalls nicht oder nicht vollständig bearbeiten.
-    </p>
+      <h2>14. Widerspruchsrecht</h2>
+      <p>Soweit wir Ihre Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen die Verarbeitung einzulegen.</p>
 
-    <h2>15. Externe Links</h2>
-    <p>
-      Diese Website kann Links zu externen Websites enthalten. Für die Inhalte und den Datenschutz auf externen Websites sind ausschließlich deren Betreiber verantwortlich.
-    </p>
+      <h2>15. Pflicht zur Bereitstellung von Daten</h2>
+      <p>Die Bereitstellung Ihrer Daten über das Kontaktformular ist weder gesetzlich noch vertraglich vorgeschrieben. Ohne die erforderlichen Angaben können wir Ihre Anfrage jedoch gegebenenfalls nicht oder nicht vollständig bearbeiten.</p>
 
-    <h2>16. Stand</h2>
-    <p>Stand: März 2026</p>
+      <h2>16. Externe Links</h2>
+      <p>Diese Website kann Links zu externen Websites enthalten. Für Inhalte und Datenschutz auf externen Websites sind ausschließlich deren Betreiber verantwortlich.</p>
 
-    <div style="margin-top:32px;">
-      <a href="index.html" class="back-link">← Zurück zur Landingpage</a>
+      <h2>17. Stand</h2>
+      <p>Stand: April 2026</p>
+
+      <div style="margin-top:32px"><a href="index.html" class="back-link">← Zurück zur Landingpage</a></div>
     </div>
   </div>
 </body>

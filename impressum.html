@@ -3,138 +3,141 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Impressum</title>
+  <title>Impressum | HDI Hauptvertretung Farshid Tehrani</title>
+  <meta name="robots" content="noindex,follow">
   <style>
-    body{
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      line-height:1.6;
-      color:#132018;
-      margin:0;
-      background:#f6f7f6;
-    }
-    .wrap{
-      max-width:900px;
-      margin:40px auto;
-      background:#fff;
-      padding:32px 24px;
-      border-radius:18px;
-      box-shadow:0 10px 30px rgba(0,0,0,.08);
-    }
-    h1,h2{line-height:1.25}
-    a{color:#0b5e2f}
-    p,li{color:#24352b}
-    .back-link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
-      border-radius:12px;
-      background:#f1f4f2;
-      border:1px solid rgba(0,0,0,.10);
-      color:#0b5e2f;
-      font-weight:900;
-      text-decoration:none;
-    }
-  </style>
+:root{
+  --text:#132018;
+  --muted:#54665c;
+  --line:rgba(0,0,0,.10);
+  --brand:#0f7b3d;
+  --brand3:#0b5e2f;
+  --shadow:0 14px 30px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(800px 420px at 10% 0%, rgba(34,168,91,.12), transparent 60%),
+    linear-gradient(180deg,#f7f8f7,#fff);
+  line-height:1.6;
+}
+a{color:var(--brand3)}
+img{max-width:100%;display:block}
+.wrap{max-width:980px;margin:auto;padding:18px 18px 90px}
+.top{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)
+}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.logoBox{width:118px;flex:0 0 118px}
+.logoBox img{width:100%;height:auto;object-fit:contain}
+.brandText b{display:block;font-size:20px;line-height:1.15}
+.brandText small{display:block;color:var(--muted);margin-top:2px}
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.nav a{text-decoration:none;color:var(--brand3);font-weight:900}
+.page-card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:34px 28px;margin-top:16px}
+.back-link{
+  display:inline-flex;align-items:center;gap:8px;padding:11px 14px;border-radius:12px;
+  background:#f1f4f2;border:1px solid rgba(0,0,0,.10);color:var(--brand3);font-weight:900;text-decoration:none
+}
+h1{font-size:42px;line-height:1.08;letter-spacing:-.03em;margin:18px 0 14px}
+h2{margin:26px 0 10px;font-size:26px;line-height:1.15}
+p,li{color:#24352b}
+ul{padding-left:22px}
+.note{margin-top:16px;padding:14px 16px;border-radius:16px;background:#f1f4f2;border:1px solid var(--line);color:var(--muted);font-size:14px}
+@media (max-width:760px){
+  .wrap{padding:12px 12px 72px}
+  .top{padding:12px 14px;align-items:flex-start}
+  .brand{align-items:flex-start;gap:10px;width:100%}
+  .logoBox{width:88px;flex:0 0 88px}
+  .brandText b{font-size:17px}
+  .brandText small{font-size:13px}
+  .nav{width:100%;gap:10px}
+  .nav a{font-size:14px}
+  .page-card{padding:24px 18px}
+  h1{font-size:34px}
+  h2{font-size:22px}
+}
+</style>
 </head>
 <body>
   <div class="wrap">
-    <h1>Impressum</h1>
-
-    <div style="margin:0 0 24px;">
-      <a href="index.html" class="back-link">← Zurück zur Landingpage</a>
+    <div class="top">
+      <div class="brand">
+        <div class="logoBox"><img src="assets/Logo.png" alt="HDI Logo"></div>
+        <div class="brandText"><b>HDI Hauptvertretung Farshid Tehrani</b><small>Impressum</small></div>
+      </div>
+      <div class="nav"><a href="index.html">Landingpage</a><a href="datenschutz.html">Datenschutz</a><a href="cookie-richtlinie.html">Cookie-Richtlinie</a></div>
     </div>
 
-    <h2>Angaben gemäß § 5 DDG</h2>
-    <p>
-      <strong>HDI Hauptvertretung Farshid Tehrani</strong><br>
+    <div class="page-card">
+      <a href="index.html" class="back-link">← Zurück zur Landingpage</a>
+      <h1>Impressum</h1>
+
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p><strong>HDI Hauptvertretung Farshid Tehrani</strong><br>
       St. Augustiner Str. 133<br>
       53225 Bonn<br>
-      Deutschland
-    </p>
+      Deutschland</p>
 
-    <p>
-      Telefon: <a href="tel:+4915566518738">0155 665 18 738</a><br>
-      E-Mail: <a href="mailto:farshid.tehrani@hdi.de">farshid.tehrani@hdi.de</a>
-    </p>
+      <p>Telefon: <a href="tel:+4915566518738">0155 665 18 738</a><br>
+      E-Mail: <a href="mailto:farshid.tehrani@hdi.de">farshid.tehrani@hdi.de</a></p>
 
-    <h2>Tätigkeit als Versicherungsvermittler</h2>
-    <p>
-      Tätigkeit als Versicherungsvertreter gemäß § 34d Abs. 1 GewO.
-    </p>
-    <p>
-      Die Beratung erfolgt als Versicherungsvertreter der HDI Versicherung AG.
-    </p>
+      <h2>Erstinformation als Versicherungsvermittler</h2>
+      <p>Es wird eine Beratung angeboten.</p>
+      <p>Die Tätigkeit erfolgt als Versicherungsvertreter mit Erlaubnis nach § 34d Abs. 1 GewO. Beratung und Vermittlung erfolgen als Versicherungsvertreter der HDI Versicherung AG.</p>
 
-    <h2>Eintragung im Vermittlerregister</h2>
-    <p>
-      Registriert im Vermittlerregister als Versicherungsvertreter mit Erlaubnis nach § 34d Abs. 1 GewO.
-    </p>
-    <p>
-      Registerführende Stelle:<br>
-      Deutscher Industrie- und Handelskammertag (DIHK) e. V.<br>
+      <h2>Eintragung im Vermittlerregister</h2>
+      <p>Registriert im Vermittlerregister als Versicherungsvertreter mit Erlaubnis nach § 34d Abs. 1 GewO.</p>
+      <p>Gemeinsame Registerstelle nach § 11a GewO:<br>
+      Deutsche Industrie- und Handelskammer (DIHK)<br>
       Breite Straße 29<br>
-      10178 Berlin
-    </p>
-    <p>
-      Registerabruf unter:
-      <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener noreferrer">www.vermittlerregister.info</a>
-    </p>
-    <p>
-      Registrierungsnummer: <strong>D-HQ16-9MJZU-08</strong>
-    </p>
+      10178 Berlin</p>
+      <p>Registerabruf unter:
+      <a href="https://www.vermittlerregister.info" target="_blank" rel="noopener noreferrer">www.vermittlerregister.info</a><br>
+      Registrierungsnummer: <strong>D-HQ16-9MJZU-08</strong></p>
 
-    <h2>Berufsrechtliche Regelungen</h2>
-    <p>
-      Es gelten insbesondere folgende berufsrechtliche Regelungen:
-    </p>
-    <ul>
-      <li>§ 34d Gewerbeordnung (GewO)</li>
-      <li>§§ 59–68 Versicherungsvertragsgesetz (VVG)</li>
-      <li>Versicherungsvermittlungsverordnung (VersVermV)</li>
-    </ul>
+      <h2>Art der Vergütung</h2>
+      <p>Die Vergütung für die Vermittlung von Versicherungsverträgen erfolgt grundsätzlich als in der Versicherungsprämie enthaltene Provision, die vom jeweiligen Versicherungsunternehmen getragen wird. Eine gesonderte Vergütung durch den Kunden fällt nur an, wenn dies ausdrücklich und gesondert vereinbart wurde.</p>
 
-    <h2>Schlichtungsstellen</h2>
-    <p>
-      Bei Streitigkeiten können folgende Schlichtungsstellen angerufen werden:
-    </p>
+      <h2>Angaben zu Beteiligungen</h2>
+      <p>Nach dem derzeit für diese Website zugrunde gelegten Stand bestehen keine unmittelbaren oder mittelbaren Beteiligungen von über 10 % an den Stimmrechten oder am Kapital eines Versicherungsunternehmens. Ebenso hält nach diesem Stand kein Versicherungsunternehmen oder Mutterunternehmen eines Versicherungsunternehmens eine unmittelbare oder mittelbare Beteiligung von über 10 % an den Stimmrechten oder am Kapital des Vermittlers.</p>
 
-    <p>
-      Versicherungsombudsmann e. V.<br>
+      <div class="note">Bitte diese Beteiligungsangaben vor dem Livegang einmal intern sachlich prüfen. Dieser Punkt hängt von den tatsächlichen Verhältnissen ab.</div>
+
+      <h2>Berufsrechtliche Regelungen</h2>
+      <ul>
+        <li>§ 34d Gewerbeordnung (GewO)</li>
+        <li>§§ 59–68 Versicherungsvertragsgesetz (VVG)</li>
+        <li>Versicherungsvermittlungsverordnung (VersVermV)</li>
+      </ul>
+
+      <h2>Schlichtungsstellen</h2>
+      <p>Bei Streitigkeiten können unter anderem folgende Schlichtungsstellen angerufen werden:</p>
+
+      <p>Versicherungsombudsmann e. V.<br>
       Postfach 08 06 32<br>
       10006 Berlin<br>
-      <a href="https://www.versicherungsombudsmann.de" target="_blank" rel="noopener noreferrer">www.versicherungsombudsmann.de</a>
-    </p>
+      <a href="https://www.versicherungsombudsmann.de" target="_blank" rel="noopener noreferrer">www.versicherungsombudsmann.de</a></p>
 
-    <p>
-      Ombudsmann Private Kranken- und Pflegeversicherung<br>
+      <p>Ombudsmann Private Kranken- und Pflegeversicherung<br>
       Postfach 06 02 22<br>
       10052 Berlin<br>
-      <a href="https://www.pkv-ombudsmann.de" target="_blank" rel="noopener noreferrer">www.pkv-ombudsmann.de</a>
-    </p>
+      <a href="https://www.pkv-ombudsmann.de" target="_blank" rel="noopener noreferrer">www.pkv-ombudsmann.de</a></p>
 
-    <h2>Online-Streitbeilegung</h2>
-    <p>
-      Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit:
-      <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">ec.europa.eu/consumers/odr/</a>
-    </p>
+      <h2>Hinweis zur Online-Streitbeilegung</h2>
+      <p>Die frühere EU-Plattform zur Online-Streitbeilegung ist eingestellt. Maßgeblich sind die oben genannten Schlichtungsstellen und die jeweils aktuellen Verbraucherinformationen.</p>
 
-    <p>
-      Wir sind nicht verpflichtet und nicht bereit, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen, soweit keine gesetzliche Verpflichtung besteht.
-    </p>
+      <h2>Haftung für Inhalte</h2>
+      <p>Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für Richtigkeit, Vollständigkeit und Aktualität wird jedoch keine Gewähr übernommen.</p>
 
-    <h2>Haftung für Inhalte</h2>
-    <p>
-      Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine Gewähr übernommen.
-    </p>
+      <h2>Haftung für Links</h2>
+      <p>Diese Website enthält Links zu externen Websites Dritter. Auf deren Inhalte haben wir keinen Einfluss. Für diese fremden Inhalte übernehmen wir keine Gewähr. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber verantwortlich.</p>
 
-    <h2>Haftung für Links</h2>
-    <p>
-      Diese Website enthält Links zu externen Websites Dritter. Auf deren Inhalte haben wir keinen Einfluss. Für diese fremden Inhalte übernehmen wir daher keine Gewähr. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
-    </p>
-
-    <div style="margin-top:32px;">
-      <a href="index.html" class="back-link">← Zurück zur Landingpage</a>
+      <div style="margin-top:32px"><a href="index.html" class="back-link">← Zurück zur Landingpage</a></div>
     </div>
   </div>
 </body>

@@ -1,897 +1,463 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>BU Landingpage – Ingenieure & Architekten</title>
-  <meta name="description" content="Kostenloses BU-Angebot für Ingenieure und Architekten. Kurzgespräch 10 bis 15 Minuten. Unverbindlich anfragen." />
-
-  <style>
-    :root{
-      --page:#f6f7f6;
-      --page2:#ffffff;
-      --surface:#ffffff;
-      --surface2:#f1f4f2;
-      --panel:#dff1e4;
-
-      --text:#132018;
-      --muted:#54665c;
-      --line:rgba(0,0,0,.10);
-
-      --brand:#0f7b3d;
-      --brand2:#22a85b;
-      --brand3:#0b5e2f;
-      --danger:#b42318;
-      --success:#0f7b3d;
-
-      --shadow:0 14px 30px rgba(0,0,0,.08);
-      --radius:18px;
-      --max:1100px;
-    }
-
-    *{box-sizing:border-box}
-
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 520px at 10% 0%, rgba(34,168,91,.10), transparent 60%),
-        radial-gradient(900px 520px at 90% 10%, rgba(15,123,61,.08), transparent 55%),
-        linear-gradient(180deg, var(--page), var(--page2));
-      line-height:1.5;
-    }
-
-    .wrap{
-      max-width:var(--max);
-      margin:auto;
-      padding:18px 16px 90px;
-    }
-
-    header{
-      background:var(--surface);
-      border:1px solid var(--line);
-      border-radius:16px;
-      box-shadow:var(--shadow);
-      padding:12px 14px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .logo{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:950;
-    }
-
-    .logo img{
-      width:90px;
-      height:48px;
-      object-fit:contain;
-      display:block;
-      background:#fff;
-      border-radius:8px;
-      border:1px solid var(--line);
-      padding:6px;
-    }
-
-    .logo small{
-      display:block;
-      color:var(--muted);
-      font-weight:700;
-    }
-
-    .topCta{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-      color:var(--muted);
-      font-weight:700;
-      font-size:13px;
-    }
-
-    .topCta a{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 12px;
-      border-radius:999px;
-      border:1px solid rgba(15,123,61,.25);
-      background:rgba(15,123,61,.06);
-      color:var(--brand3);
-      text-decoration:none;
-      font-weight:900;
-    }
-
-    .topCta a:hover{
-      background:rgba(15,123,61,.10);
-    }
-
-    .hero{
-      margin-top:14px;
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:14px;
-      align-items:stretch;
-    }
-
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;}
-    }
-
-    .card{
-      background:var(--surface);
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-
-    .heroLeft{
-      padding:22px;
-    }
-
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(15,123,61,.08);
-      border:1px solid rgba(15,123,61,.22);
-      color:var(--brand3);
-      font-weight:900;
-      font-size:13px;
-      margin-bottom:10px;
-    }
-
-    h1{
-      margin:0 0 10px;
-      font-size:34px;
-      line-height:1.12;
-    }
-
-    ul{
-      padding:0;
-      margin:0;
-      list-style:none;
-      display:grid;
-      gap:10px;
-    }
-
-    li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-
-    .tick{
-      width:22px;
-      height:22px;
-      border-radius:8px;
-      background:rgba(34,168,91,.12);
-      border:1px solid rgba(34,168,91,.30);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:var(--brand3);
-      font-weight:950;
-      flex:0 0 auto;
-      margin-top:2px;
-    }
-
-    .ctaRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:14px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:12px 16px;
-      border-radius:12px;
-      border:1px solid rgba(0,0,0,.12);
-      background:linear-gradient(180deg, var(--brand2), var(--brand));
-      color:#fff;
-      font-weight:950;
-      text-decoration:none;
-      box-shadow:0 10px 20px rgba(15,123,61,.16);
-      cursor:pointer;
-    }
-
-    .btn:disabled{
-      opacity:.65;
-      cursor:not-allowed;
-    }
-
-    .heroRight{
-      display:grid;
-      gap:14px;
-    }
-
-    .imgBox{
-      min-height:220px;
-      border:1px solid rgba(15,123,61,.25);
-      border-radius:var(--radius);
-      overflow:hidden;
-      background:var(--surface2);
-    }
-
-    .imgBox img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-
-    .panel{
-      background:var(--panel);
-      border:1px solid rgba(15,123,61,.22);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:16px;
-    }
-
-    .panel b{
-      font-size:18px;
-      display:block;
-      margin-bottom:4px;
-    }
-
-    .panel p{
-      margin:0;
-      color:color-mix(in srgb, var(--text) 70%, #000 30%);
-      font-weight:650;
-    }
-
-    .formWrap{
-      margin-top:14px;
-    }
-
-    .formCard{
-      padding:18px;
-    }
-
-    .formTitle{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-
-    .formTitle b{
-      font-size:18px;
-    }
-
-    .formTitle span{
-      color:var(--muted);
-      font-weight:650;
-      font-size:13px;
-    }
-
-    form{
-      display:grid;
-      gap:12px;
-      margin-top:12px;
-    }
-
-    label{
-      font-weight:900;
-      font-size:13px;
-    }
-
-    input, select{
-      width:100%;
-      padding:12px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:var(--surface2);
-      color:var(--text);
-      outline:none;
-    }
-
-    input:focus, select:focus{
-      border-color:rgba(15,123,61,.45);
-      box-shadow:0 0 0 4px rgba(34,168,91,.10);
-      background:#fff;
-    }
-
-    .row{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-    }
-
-    @media (max-width:700px){
-      .row{grid-template-columns:1fr;}
-    }
-
-    .consent{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      color:var(--muted);
-      font-weight:650;
-      font-size:13px;
-    }
-
-    .consent input{
-      width:auto;
-      margin-top:3px;
-      flex:0 0 auto;
-    }
-
-    .fineprint{
-      color:var(--muted);
-      font-size:12px;
-      margin-top:4px;
-    }
-
-    .statusMessage{
-      display:none;
-      margin-top:10px;
-      padding:12px 14px;
-      border-radius:12px;
-      font-size:14px;
-      font-weight:700;
-      border:1px solid transparent;
-    }
-
-    .statusMessage.success{
-      display:block;
-      color:var(--success);
-      background:rgba(15,123,61,.08);
-      border-color:rgba(15,123,61,.18);
-    }
-
-    .statusMessage.error{
-      display:block;
-      color:var(--danger);
-      background:rgba(180,35,24,.07);
-      border-color:rgba(180,35,24,.18);
-    }
-
-    footer{
-      margin-top:18px;
-      text-align:center;
-      color:var(--muted);
-      font-size:12px;
-    }
-
-    .cookieBanner{
-      position:fixed;
-      left:12px;
-      right:12px;
-      bottom:12px;
-      max-width:1100px;
-      margin:auto;
-      background:#ffffff;
-      border:1px solid rgba(0,0,0,.14);
-      box-shadow:0 18px 40px rgba(0,0,0,.14);
-      border-radius:16px;
-      padding:14px;
-      display:none;
-      z-index:9999;
-    }
-
-    .cookieBanner.show{
-      display:block;
-    }
-
-    .cookieRow{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      justify-content:space-between;
-      flex-wrap:wrap;
-    }
-
-    .cookieText{
-      color:var(--text);
-      font-weight:750;
-      font-size:13px;
-      max-width:760px;
-    }
-
-    .cookieText a{
-      color:var(--brand3);
-      font-weight:950;
-      text-decoration:none;
-    }
-
-    .cookieActions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .cookieBtn{
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid rgba(0,0,0,.12);
-      font-weight:950;
-      cursor:pointer;
-      background:var(--surface2);
-      color:var(--text);
-    }
-
-    .cookieBtn.primary{
-      background:linear-gradient(180deg, var(--brand2), var(--brand));
-      color:#fff;
-      border-color:rgba(15,123,61,.35);
-    }
-
-    .contact-section{padding:14px 0 0; position:relative; z-index:5;}
-    .contact-box{width:100%;max-width:none;margin:0;background:#f1f4f2;border-radius:18px;padding:25px;}
-    .contact-card{background:#fff;border-radius:14px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;border:1px solid rgba(0,0,0,.08);}
-    .contact-left{font-size:15px;}
-    .contact-left strong{display:block;font-size:16px;font-weight:600;margin-bottom:2px;}
-    .contact-left span{color:#54665c;font-size:14.5px;}
-    .contact-phone{margin-top:6px;font-size:14.5px;}
-    .contact-phone b{color:#0f7b3d;font-weight:600;}
-    .contact-right{display:flex;gap:20px;font-size:14.5px;}
-    .contact-right a{text-decoration:none;color:#0f7b3d;font-weight:500;}
-    .contact-meta{text-align:center;margin-top:16px;font-size:12.5px;color:#6b7c72;line-height:1.5;}
-    .contact-meta a{color:#0f7b3d;text-decoration:none;}
-    .contact-copy{text-align:center;margin-top:12px;font-size:12px;color:#7a8a80;}
-
-    .contact-section,
-    .contact-box,
-    .contact-card,
-    .contact-meta,
-    .contact-copy{
-      position:relative;
-      z-index:50;
-    }
-
-    .contact-right a,
-    .contact-meta a{
-      position:relative;
-      z-index:60;
-      pointer-events:auto;
-    }
-
-    .cookieBanner{
-      pointer-events:none;
-    }
-
-    .cookieBanner.show{
-      pointer-events:auto;
-    }
-
-    .hidden-field{
-      position:absolute !important;
-      left:-9999px !important;
-      opacity:0 !important;
-      pointer-events:none !important;
-      height:0 !important;
-      width:0 !important;
-      overflow:hidden !important;
-    }
-
-    @media (max-width:700px){
-      .contact-card{flex-direction:column;align-items:flex-start;gap:10px;}
-      .contact-right{gap:15px;}
-    }
-  </style>
-
-  <script>
-    const GOOGLE_ADS_ID = 'AW-DEINE_GOOGLE_ADS_ID';
-    const GOOGLE_CONVERSION_LABEL = 'DEIN_CONVERSION_LABEL';
-
-    const GOOGLE_ADS_READY =
-      GOOGLE_ADS_ID !== 'AW-DEINE_GOOGLE_ADS_ID' &&
-      GOOGLE_CONVERSION_LABEL !== 'DEIN_CONVERSION_LABEL';
-
-    let googleAdsInitialized = false;
-    let googleAdsScriptLoading = false;
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied'
-    });
-
-    function hasConsent() {
-      return localStorage.getItem('cookieConsentMarketing') === 'yes';
-    }
-
-    function setConsent(value) {
-      localStorage.setItem('cookieConsentMarketing', value ? 'yes' : 'no');
-    }
-
-    function loadGoogleAdsScript() {
-      if (!GOOGLE_ADS_READY || googleAdsInitialized || googleAdsScriptLoading) return;
-
-      googleAdsScriptLoading = true;
-
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GOOGLE_ADS_ID);
-
-      script.onload = () => {
-        googleAdsInitialized = true;
-        googleAdsScriptLoading = false;
-
-        gtag('js', new Date());
-        gtag('config', GOOGLE_ADS_ID);
-
-        if (hasConsent()) {
-          gtag('consent', 'update', {
-            ad_storage: 'granted',
-            ad_user_data: 'granted',
-            ad_personalization: 'granted'
-          });
-        }
-      };
-
-      script.onerror = () => {
-        googleAdsScriptLoading = false;
-      };
-
-      document.head.appendChild(script);
-    }
-
-    function applyConsentAfterChoice() {
-      if (!GOOGLE_ADS_READY) return;
-
-      if (hasConsent()) {
-        loadGoogleAdsScript();
-
-        gtag('consent', 'update', {
-          ad_storage: 'granted',
-          ad_user_data: 'granted',
-          ad_personalization: 'granted'
-        });
-      } else {
-        gtag('consent', 'update', {
-          ad_storage: 'denied',
-          ad_user_data: 'denied',
-          ad_personalization: 'denied'
-        });
-      }
-    }
-
-    function resetCookieSettings() {
-      localStorage.removeItem('cookieConsentMarketing');
-      location.reload();
-    }
-
-    function isValidPhone(phone) {
-      const cleaned = phone.replace(/[^\d+]/g, '');
-      return cleaned.length >= 7;
-    }
-
-    function isValidEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const banner = document.getElementById('cookieBanner');
-      const acceptBtn = document.getElementById('cookieAccept');
-      const declineBtn = document.getElementById('cookieDecline');
-      const resetCookieLink = document.getElementById('resetCookieSettingsLink');
-
-      const form = document.getElementById('buForm');
-      const submitBtn = document.getElementById('submitBtn');
-      const formStatus = document.getElementById('formStatus');
-
-      if (banner) {
-        if (!localStorage.getItem('cookieConsentMarketing')) {
-          banner.classList.add('show');
-        } else if (hasConsent()) {
-          applyConsentAfterChoice();
-        }
-      }
-
-      if (acceptBtn && banner) {
-        acceptBtn.addEventListener('click', () => {
-          setConsent(true);
-          applyConsentAfterChoice();
-          banner.classList.remove('show');
-        });
-      }
-
-      if (declineBtn && banner) {
-        declineBtn.addEventListener('click', () => {
-          setConsent(false);
-          applyConsentAfterChoice();
-          banner.classList.remove('show');
-        });
-      }
-
-      if (resetCookieLink) {
-        resetCookieLink.addEventListener('click', (event) => {
-          event.preventDefault();
-          resetCookieSettings();
-        });
-      }
-
-      if (!form) return;
-
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        formStatus.className = 'statusMessage';
-        formStatus.textContent = '';
-
-        const name = form.querySelector('#name').value.trim();
-        const phone = form.querySelector('#phone').value.trim();
-        const email = form.querySelector('#email').value.trim();
-        const profession = form.querySelector('#profession').value;
-        const honeypot = form.querySelector('#website').value.trim();
-        const consent = form.querySelector('#consent').checked;
-
-        if (honeypot !== '') {
-          formStatus.className = 'statusMessage error';
-          formStatus.textContent = 'Die Anfrage konnte nicht gesendet werden.';
-          return;
-        }
-
-        if (!name || !phone || !email || !profession || !consent) {
-          formStatus.className = 'statusMessage error';
-          formStatus.textContent = 'Bitte füllen Sie alle Pflichtfelder vollständig aus.';
-          return;
-        }
-
-        if (!isValidPhone(phone)) {
-          formStatus.className = 'statusMessage error';
-          formStatus.textContent = 'Bitte geben Sie eine gültige Telefonnummer ein.';
-          return;
-        }
-
-        if (!isValidEmail(email)) {
-          formStatus.className = 'statusMessage error';
-          formStatus.textContent = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
-          return;
-        }
-
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Wird gesendet...';
-
-        try {
-          const formData = new FormData(form);
-
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-              'Accept': 'application/json'
-            }
-          });
-
-          if (!response.ok) {
-            throw new Error('Formularversand fehlgeschlagen');
-          }
-
-          form.reset();
-
-          formStatus.className = 'statusMessage success';
-          formStatus.textContent = 'Vielen Dank. Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns zeitnah bei Ihnen.';
-
-          if (GOOGLE_ADS_READY && hasConsent()) {
-            if (!googleAdsInitialized) {
-              loadGoogleAdsScript();
-            }
-
-            gtag('event', 'conversion', {
-              send_to: GOOGLE_ADS_ID + '/' + GOOGLE_CONVERSION_LABEL
-            });
-          }
-        } catch (error) {
-          formStatus.className = 'statusMessage error';
-          formStatus.textContent = 'Beim Versand ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per Telefon oder E-Mail.';
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'BU Anfrage absenden';
-        }
-      });
-    });
-  </script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Berufshaftpflicht für Architekten & Ingenieure | HDI Hauptvertretung Farshid Tehrani</title>
+<meta name="description" content="Berufshaftpflicht für Architekten und Ingenieure – kostenfreie Ersteinschätzung zu Honorarschutz, BIM, Nachmeldefrist und berufstypischen Haftungsrisiken." />
+<meta name="robots" content="index,follow" />
+<style>
+:root{
+  --page:#f6f7f6;
+  --page2:#ffffff;
+  --surface:#ffffff;
+  --surface2:#f1f4f2;
+  --text:#132018;
+  --muted:#54665c;
+  --line:rgba(0,0,0,.10);
+  --brand:#0f7b3d;
+  --brand2:#22a85b;
+  --brand3:#0b5e2f;
+  --danger:#b42318;
+  --success:#0f7b3d;
+  --shadow:0 14px 30px rgba(0,0,0,.08);
+  --radius:24px;
+  --max:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(800px 420px at 10% 0%, rgba(34,168,91,.12), transparent 60%),
+    linear-gradient(180deg,#f7f8f7,#fff);
+  line-height:1.55;
+}
+img{max-width:100%;display:block}
+a{color:var(--brand3)}
+.wrap{max-width:var(--max);margin:auto;padding:18px 18px 90px}
+.top{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+  padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)
+}
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.logoBox{width:118px;flex:0 0 118px}
+.logoBox img{width:100%;height:auto;object-fit:contain}
+.brandText b{display:block;font-size:20px;line-height:1.15}
+.brandText small{display:block;color:var(--muted);margin-top:2px}
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.nav a{text-decoration:none;color:var(--brand3);font-weight:900}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.badge{
+  display:flex;padding:8px 12px;border-radius:999px;background:rgba(15,123,61,.08);
+  border:1px solid rgba(15,123,61,.20);color:var(--brand3);font-size:13px;font-weight:900;
+  width:fit-content;margin:8px auto 0
+}
+h1{font-size:52px;line-height:1.02;letter-spacing:-.04em;margin:14px 0 12px;text-align:center}
+h2{margin:0 0 12px;font-size:28px;line-height:1.15}
+.sub{font-size:17px;color:var(--muted);max-width:700px;margin-inline:auto;padding-inline:40px;line-height:1.7}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;justify-content:center;align-items:center;width:100%}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:14px;
+  text-decoration:none;font-weight:950;border:1px solid rgba(0,0,0,.10);cursor:pointer
+}
+.primary{background:linear-gradient(180deg,var(--brand2),var(--brand));color:#fff}
+.ghost{background:rgba(15,123,61,.06);color:var(--brand3);border-color:rgba(15,123,61,.18)}
+.note{margin-top:16px;padding:14px 16px;border-radius:16px;background:var(--surface2);border:1px solid var(--line);color:var(--muted);font-size:14px;max-width:100%;width:100%;text-align:left}
+.grid{display:grid;grid-template-columns:1.35fr .65fr;gap:16px;margin-top:16px}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:16px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden}
+.tall{grid-column:span 3}
+.narrow{grid-column:span 2}
+.visual{min-height:200px;background-size:cover;background-position:center center;background-repeat:no-repeat}
+.v1{background-image:url('assets/1.jpg')}
+.v2{background-image:url('assets/2.jpg')}
+.v3{background-image:url('assets/3.jpg')}
+.v4{background-image:url('assets/4.jpg')}
+.v5{background-image:url('assets/5.jpg')}
+.content{padding:18px}
+.content b{display:block;font-size:18px;margin-bottom:6px}
+.content p{margin:0;color:var(--muted)}
+.list{display:grid;gap:12px}
+.rowx{display:grid;grid-template-columns:26px 1fr;gap:12px;padding:14px;border-radius:16px;background:var(--surface2);border:1px solid var(--line)}
+.dot{width:26px;height:26px;border-radius:999px;background:rgba(15,123,61,.10);display:flex;align-items:center;justify-content:center;color:var(--brand3);font-weight:950}
+.sideSticky{position:sticky;top:18px;padding:22px}
+form{display:grid;gap:12px;margin-top:12px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{font-weight:900;font-size:13px}
+input,select,textarea{width:100%;padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--surface2);font:inherit;outline:none}
+textarea{min-height:94px;resize:vertical}
+input:focus,select:focus,textarea:focus{background:#fff;border-color:rgba(15,123,61,.45);box-shadow:0 0 0 4px rgba(34,168,91,.10)}
+.consent{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13px;font-weight:650}
+.consent input{width:auto;margin-top:3px}
+.consent a{color:var(--brand3);font-weight:900;text-decoration:none}
+.hidden-field{position:absolute!important;left:-9999px!important;opacity:0!important;height:0!important;width:0!important;overflow:hidden!important}
+.statusMessage{display:none;margin-top:10px;padding:12px 14px;border-radius:12px;font-size:14px;font-weight:700;border:1px solid transparent}
+.statusMessage.success{display:block;color:var(--success);background:rgba(15,123,61,.08);border-color:rgba(15,123,61,.18)}
+.statusMessage.error{display:block;color:var(--danger);background:rgba(180,35,24,.07);border-color:rgba(180,35,24,.18)}
+.fineprint{font-size:12px;color:var(--muted)}
+.contact-section{padding:14px 0 0}
+.contact-box{background:#f1f4f2;border-radius:20px;padding:24px}
+.contact-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.contact-left strong{display:block}
+.contact-right{display:flex;gap:16px;flex-wrap:wrap}
+.contact-right a,.contact-meta a{text-decoration:none;color:var(--brand3);font-weight:800}
+.contact-meta,.contact-copy{text-align:center;color:#6b7c72;font-size:12px;margin-top:14px;line-height:1.55}
+.cookieModalOverlay{
+  position:fixed;inset:0;background:rgba(7,16,11,.52);backdrop-filter:blur(2px);
+  display:none;align-items:center;justify-content:center;padding:18px;z-index:9999
+}
+.cookieModalOverlay.show{display:flex}
+.cookieBanner{
+  width:min(560px, 100%);background:#ffffff;border:1px solid rgba(15,123,61,.18);
+  box-shadow:0 24px 60px rgba(0,0,0,.22);border-radius:24px;padding:26px 24px 20px;
+}
+.cookieTitle{font-size:28px;line-height:1.08;margin:0 0 10px;text-align:center;color:var(--text);font-weight:950}
+.cookieSub{text-align:center;font-size:14px;color:var(--muted);margin:0 0 16px}
+.cookieText{font-size:14px;line-height:1.72;color:#24352b}
+.cookieManage{display:inline-flex;margin:10px 0 16px;color:var(--brand3);font-weight:900;text-decoration:none}
+.cookieActions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-top:4px}
+.cookieBtn{
+  min-height:48px;padding:12px 14px;border-radius:14px;border:1px solid rgba(0,0,0,.10);
+  font-weight:950;cursor:pointer;background:#f1f4f2;color:var(--text)
+}
+.cookieBtn.primary{background:linear-gradient(180deg,var(--brand2),var(--brand));color:#fff;border-color:rgba(15,123,61,.35)}
+.cookieBtn.ghost{background:#fff;color:var(--brand3);border-color:rgba(15,123,61,.20)}
+.cookieLinks{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:13px}
+.cookieLinks a{color:var(--brand3);font-weight:900;text-decoration:none}
+@media (max-width:1020px){
+  .grid{grid-template-columns:1fr}
+  .sideSticky{position:static}
+}
+@media (max-width:900px){
+  .bento{grid-template-columns:1fr 1fr}
+  .tall,.narrow{grid-column:auto}
+}
+@media (max-width:760px){
+  .wrap{padding:12px 12px 72px}
+  .top{padding:12px 14px;align-items:flex-start}
+  .brand{align-items:flex-start;gap:10px;width:100%}
+  .logoBox{width:88px;flex:0 0 88px}
+  .brandText b{font-size:17px}
+  .brandText small{font-size:13px}
+  .nav{width:100%;gap:10px}
+  .nav a{font-size:14px}
+  h1{font-size:34px;line-height:1.06}
+  h2{font-size:22px}
+  .sub{font-size:15px;padding-inline:18px}
+  .hero{padding:22px 18px}
+  .sideSticky{padding:20px 16px}
+  .badge{font-size:12px;padding:7px 10px}
+  .btn,.cookieBtn{width:100%;padding:14px 16px}
+  .cta{gap:10px;justify-content:center}
+  .cta .btn{max-width:340px}
+  .content{padding:15px}
+  .content b{font-size:17px}
+  .visual{min-height:170px}
+  .rowx{grid-template-columns:22px 1fr;gap:10px;padding:12px}
+  .dot{width:22px;height:22px;font-size:12px}
+  .row{grid-template-columns:1fr}
+  input,select,textarea{padding:13px;font-size:16px}
+  .contact-box{padding:18px}
+  .contact-card{padding:14px}
+  .contact-right{width:100%;gap:12px}
+  .contact-right a{font-size:14px}
+  .contact-meta,.contact-copy,.fineprint{font-size:12px}
+  .cookieModalOverlay{padding:12px}
+  .cookieBanner{padding:22px 18px 18px;border-radius:20px}
+  .cookieTitle{font-size:23px}
+  .cookieText{font-size:13px;line-height:1.65}
+  .cookieActions{grid-template-columns:1fr}
+  .cookieLinks{gap:12px;font-size:12px}
+}
+@media (max-width:560px){.bento{grid-template-columns:1fr}}
+@media (max-width:480px){
+  .wrap{padding:10px 10px 64px}
+  .top{border-radius:14px}
+  .card,.tile,.contact-box{border-radius:18px}
+  .contact-card{border-radius:14px}
+  h1{font-size:30px}
+  h2{font-size:20px}
+  .sub{font-size:14px;padding-inline:14px}
+  .visual{min-height:150px}
+  .nav{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .nav a{text-align:center;padding:10px 8px;background:#f1f4f2;border:1px solid var(--line);border-radius:10px}
+}
+</style>
+<script>
+const GOOGLE_ADS_ID='AW-DEINE_GOOGLE_ADS_ID';
+const GOOGLE_CONVERSION_LABEL='DEIN_CONVERSION_LABEL';
+const GOOGLE_ADS_READY=GOOGLE_ADS_ID!=='AW-DEINE_GOOGLE_ADS_ID'&&GOOGLE_CONVERSION_LABEL!=='DEIN_CONVERSION_LABEL';
+let adsLoaded=false, adsLoading=false;
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+function hasConsent(){return localStorage.getItem('cookieConsentMarketing')==='yes';}
+function setConsent(v){localStorage.setItem('cookieConsentMarketing', v?'yes':'no');}
+function loadGoogleAdsScript(){
+  if(!GOOGLE_ADS_READY || adsLoaded || adsLoading) return;
+  adsLoading=true;
+  const s=document.createElement('script');
+  s.async=true;
+  s.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(GOOGLE_ADS_ID);
+  s.onload=()=>{adsLoaded=true;adsLoading=false;gtag('js', new Date());gtag('config', GOOGLE_ADS_ID);if(hasConsent()){gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}};
+  s.onerror=()=>{adsLoading=false;};
+  document.head.appendChild(s);
+}
+function applyConsent(){
+  if(!GOOGLE_ADS_READY) return;
+  if(hasConsent()){loadGoogleAdsScript();gtag('consent','update',{ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}
+  else{gtag('consent','update',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});}
+}
+function resetCookieSettings(){localStorage.removeItem('cookieConsentMarketing');location.reload();}
+function isValidPhone(phone){const c=phone.replace(/[^\d+]/g,''); return c.length>=7;}
+function isValidEmail(email){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);}
+document.addEventListener('DOMContentLoaded',()=>{
+ const banner=document.getElementById('cookieBanner');
+ const acceptBtn=document.getElementById('cookieAccept');
+ const declineBtn=document.getElementById('cookieDecline');
+ const onlyNecessaryBtn=document.getElementById('cookieOnlyNecessary');
+ const resetLink=document.getElementById('resetCookieSettingsLink');
+ const resetInline=document.getElementById('resetCookieSettingsInline');
+ const form=document.getElementById('leadForm');
+ const submitBtn=document.getElementById('submitBtn');
+ const formStatus=document.getElementById('formStatus');
+ if(banner){
+   const consentValue = localStorage.getItem('cookieConsentMarketing');
+   if(consentValue===null) banner.classList.add('show');
+   else applyConsent();
+ }
+ if(acceptBtn) acceptBtn.addEventListener('click',()=>{setConsent(true); applyConsent(); banner.classList.remove('show');});
+ if(declineBtn) declineBtn.addEventListener('click',()=>{setConsent(false); applyConsent(); banner.classList.remove('show');});
+ if(onlyNecessaryBtn) onlyNecessaryBtn.addEventListener('click',()=>{setConsent(false); applyConsent(); banner.classList.remove('show');});
+ if(resetLink) resetLink.addEventListener('click',(e)=>{e.preventDefault(); resetCookieSettings();});
+ if(resetInline) resetInline.addEventListener('click',(e)=>{e.preventDefault(); resetCookieSettings();});
+ if(!form) return;
+ form.addEventListener('submit', async (event)=>{
+   event.preventDefault();
+   formStatus.className='statusMessage';
+   formStatus.textContent='';
+   const name=form.querySelector('#name').value.trim();
+   const phone=form.querySelector('#phone').value.trim();
+   const email=form.querySelector('#email').value.trim();
+   const profession=form.querySelector('#profession').value;
+   const honeypot=form.querySelector('#website').value.trim();
+   const consent=form.querySelector('#consent').checked;
+   if(honeypot!==''){formStatus.className='statusMessage error'; formStatus.textContent='Die Anfrage konnte nicht gesendet werden.'; return;}
+   if(!name || !phone || !email || !profession || !consent){formStatus.className='statusMessage error'; formStatus.textContent='Bitte füllen Sie alle Pflichtfelder vollständig aus.'; return;}
+   if(!isValidPhone(phone)){formStatus.className='statusMessage error'; formStatus.textContent='Bitte geben Sie eine gültige Telefonnummer ein.'; return;}
+   if(!isValidEmail(email)){formStatus.className='statusMessage error'; formStatus.textContent='Bitte geben Sie eine gültige E-Mail-Adresse ein.'; return;}
+   submitBtn.disabled=true; submitBtn.textContent='Wird gesendet...';
+   try{
+      const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+      if(!response.ok) throw new Error('send failed');
+      form.reset();
+      formStatus.className='statusMessage success';
+      formStatus.textContent='Vielen Dank. Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns zeitnah bei Ihnen.';
+   }catch(error){
+      formStatus.className='statusMessage error';
+      formStatus.textContent='Beim Versand ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per Telefon oder E-Mail.';
+   }finally{
+      submitBtn.disabled=false; submitBtn.textContent='Kostenfreien Check anfragen';
+   }
+ });
+});
+</script>
 </head>
-
 <body>
-  <div class="wrap">
-
-    <header>
-      <div class="logo">
-        <img src="assets/Logo.png" alt="Logo" width="90" height="48" />
-        <div>
-          <div>HDI Hauptvertretung <span style="font-weight:950;">Farshid Tehrani</span></div>
-          <small>Ingenieure und Architekten · Berufsunfähigkeit</small>
-        </div>
-      </div>
-      <div class="topCta">
-        <span>
-          Telefon
-          <a href="tel:+4915566518738" style="color:var(--text);text-decoration:none;font-weight:950;">
-            0155 665 18 738
-          </a>
-        </span>
-        <a href="#formular">BU Angebot anfragen</a>
-      </div>
-    </header>
-
-    <section class="hero">
-      <div class="card heroLeft">
-        <div class="badge" style="display:block;text-align:center;margin:0 auto;">
-          Unverbindliche Beratung · Ortsunabhängig & deutschlandweit
-        </div>
-
-        <h1 style="text-align:center;margin:0;line-height:1.3;">
-          BU für Ingenieure & Architekten
-          <br>
-          <span style="font-size:0.75em;font-weight:400;color:#555;">
-            individuelle Absicherung Ihrer Arbeitskraft
-          </span>
-        </h1>
-
-        <div style="height:22px;"></div>
-
-        <ul>
-          <li><span class="tick">✓</span><span>Welche BU-Rente wirklich sinnvoll ist</span></li>
-          <li><span class="tick">✓</span><span>Auf Ihren Beruf individuell abgestimmt</span></li>
-          <li><span class="tick">✓</span><span>Klare Empfehlung statt unübersichtlicher Tarifauswahl</span></li>
-          <li><span class="tick">✓</span><span>Optional: Ersteinschätzung zur Gesundheitsprüfung außerhalb des Formulars</span></li>
-        </ul>
-
-        <div style="height:22px;"></div>
-
-        <div class="ctaRow" style="justify-content:center;">
-          <a class="btn" href="#formular">Jetzt unverbindliche BU-Beratung anfragen</a>
-        </div>
-
-        <div class="fineprint" style="text-align:center;">
-          Hinweis: Keine Abschlussverpflichtung. Erstmal Klarheit und Orientierung.
-        </div>
-      </div>
-
-      <div class="heroRight">
-        <div class="imgBox">
-          <img src="assets/hero.jpg" alt="Ingenieur oder Architekt im Büro" width="900" height="600" loading="eager" />
-        </div>
-
-        <div class="panel" style="text-align:center;">
-          <b>Persönliche Beratung für Ihre Absicherung</b>
-          <p>individuell auf Ihren Beruf abgestimmt.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="formWrap" id="ablauf">
-      <div class="card formCard">
-        <div class="formTitle">
-          <b>So läuft es ab</b>
-          <span>klar und schnell</span>
-        </div>
-        <div style="display:grid;gap:10px;margin-top:12px;color:var(--muted);font-weight:650;">
-          <div><b style="color:var(--text)">1) Anfrage</b> kurze Kontaktdaten</div>
-          <div><b style="color:var(--text)">2) Kurzgespräch</b> 10 bis 15 Minuten</div>
-          <div><b style="color:var(--text)">3) Angebot</b> Empfehlung und nächste Schritte</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="formWrap" id="formular">
-      <div class="card formCard">
-        <div class="formTitle">
-          <b>BU Angebot anfragen</b>
-          <span>Rückmeldung zeitnah</span>
-        </div>
-
-        <form id="buForm" action="https://formspree.io/f/xkogldbd" method="POST" novalidate>
-          <input type="hidden" name="landingpage" value="LP02 BU Ingenieure und Architekten" />
-          <input type="hidden" name="zielgruppe" value="Ingenieure und Architekten" />
-          <input type="hidden" name="anfrage" value="BU Angebot" />
-
-          <div class="hidden-field" aria-hidden="true">
-            <label for="website">Website</label>
-            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
-          </div>
-
-          <div class="row">
-            <div>
-              <label for="name">Name*</label>
-              <input id="name" name="name" required placeholder="Max Mustermann" autocomplete="name" />
-            </div>
-            <div>
-              <label for="phone">Telefon*</label>
-              <input id="phone" name="phone" required placeholder="+49" autocomplete="tel" />
-            </div>
-          </div>
-
-          <div class="row">
-            <div>
-              <label for="email">E-Mail*</label>
-              <input id="email" name="email" type="email" required placeholder="name@mail.de" autocomplete="email" />
-            </div>
-            <div>
-              <label for="profession">Beruf*</label>
-              <select id="profession" name="profession" required>
-                <option value="" selected disabled>Bitte auswählen</option>
-                <option value="Ingenieur">Ingenieur</option>
-                <option value="Architekt">Architekt</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="consent">
-            <input id="consent" name="consent" type="checkbox" required />
-            <div>
-              Ich willige ein, dass meine Angaben zur Bearbeitung meiner Anfrage, zur Kontaktaufnahme (auch telefonisch) sowie zur Beratung zu Versicherungsprodukten verarbeitet werden.
-              <a href="datenschutz.html" style="font-weight:900;color:var(--brand3);text-decoration:none;" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>
-              gelesen.*
-            </div>
-          </div>
-
-          <button class="btn" id="submitBtn" type="submit">BU Anfrage absenden</button>
-
-          <div id="formStatus" class="statusMessage" role="status" aria-live="polite"></div>
-
-          <div class="fineprint">
-            Transparenzhinweis: Beratung erfolgt als Versicherungsvertreter der HDI Versicherung AG gemäß §34d Abs. 1 GewO.
-          </div>
-        </form>
-      </div>
-    </section>
-
-    <section class="contact-section">
-      <div class="contact-box">
-        <div class="contact-card">
-          <div class="contact-left">
-            <strong>HDI Hauptvertretung Farshid Tehrani</strong>
-            <span>Deutschlandweit · Bonn</span>
-            <div class="contact-phone">
-              Telefon <b>0155 665 18 738</b>
-            </div>
-          </div>
-          <div class="contact-right">
-            <a href="mailto:farshid.tehrani@hdi.de">E-Mail</a>
-            <a href="./impressum.html">Impressum</a>
-            <a href="./datenschutz.html" id="footerPrivacyLink">Datenschutz</a>
-          </div>
-        </div>
-
-        <div class="contact-meta">
-          St. Augustiner Str. 133, 53225 Bonn · Versicherungsvertreter gemäß §34d Abs. 1 GewO<br>
-          Beratung erfolgt als Versicherungsvertreter der HDI Versicherung AG.<br>
-          Registriert im Vermittlerregister der DIHK · Registrierungsnummer: D-HQ16-9MJZU-08<br><br>
-          <a href="https://www.vermittlerregister.info/" target="_blank" rel="noopener noreferrer">vermittlerregister.info</a> ·
-          <a href="#" id="resetCookieSettingsLink">Cookie-Einstellungen zurücksetzen</a>
-        </div>
-
-        <div class="contact-copy">
-          © HDI Hauptvertretung Farshid Tehrani
-        </div>
-      </div>
-    </section>
-
+<div class="wrap">
+  <div class="top">
+    <div class="brand">
+      <div class="logoBox"><img src="assets/Logo.png" alt="HDI Logo"></div>
+      <div class="brandText"><b>HDI Hauptvertretung Farshid Tehrani</b><small>Berufshaftpflicht für Architekten & Ingenieure</small></div>
+    </div>
+    <div class="nav"><a href="#vorteile">Vorteile</a><a href="#hdi">HDI Highlights</a><a href="#formular">Check anfragen</a></div>
   </div>
 
-  <div class="cookieBanner" id="cookieBanner">
-    <div class="cookieRow">
-      <div class="cookieText">
-        Diese Website verwendet optionale Marketing-Technologien (z. B. Google Ads Conversion Tracking), um die Nutzung der Seite zu analysieren und Werbemaßnahmen zu verbessern. Diese Technologien werden nur mit Ihrer Einwilligung aktiviert. Details finden Sie in der
-        <a href="datenschutz.html" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>.
+  <div class="grid">
+    <div>
+      <div class="card hero" style="padding:32px;text-align:center">
+        <span class="badge">Kostenfreie Ersteinschätzung · Deutschlandweit</span>
+        <h1><span style="display:block">Berufshaftpflicht</span><span style="display:block;font-size:.5em;line-height:1.05;margin:.08em 0">für</span><span style="display:block">Architekten &amp; Ingenieure</span></h1>
+        <div class="sub">Wir prüfen zeitnah, ob Ihre berufliche Absicherung zu Ihrer Tätigkeit passt – insbesondere bei Planung, Beratung, Bauüberwachung, Koordination, BIM und angrenzenden Haftungsrisiken.</div>
+        <div class="cta">
+          <a class="btn primary" href="#formular">Kostenfreien Check anfragen</a>
+          <a class="btn ghost" href="#hdi">Highlights ansehen</a>
+        </div>
+        <div class="note">Hinweis: Die konkreten Leistungen und der genaue Deckungsumfang richten sich stets nach dem jeweiligen Antrag, dem Versicherungsschein und den vereinbarten Versicherungsbedingungen.</div>
       </div>
-      <div class="cookieActions">
-        <button class="cookieBtn" id="cookieDecline" type="button">Ablehnen</button>
-        <button class="cookieBtn primary" id="cookieAccept" type="button">Akzeptieren</button>
+
+      <div class="bento" id="vorteile">
+        <div class="tile tall">
+          <div class="visual v1"></div>
+          <div class="content">
+            <b>Berufsbezug statt Standardlösung</b>
+            <p>Fokussiert auf Architekten, Ingenieure, Büros und Gründerkonstellationen – nicht auf pauschale Standardabsicherung.</p>
+          </div>
+        </div>
+
+        <div class="tile tall">
+          <div class="visual v2"></div>
+          <div class="content">
+            <b>BIM und moderne Projektrisiken</b>
+            <p>Relevante Themen wie BIM, Koordination und aktuelle Projektstrukturen können mitgedacht werden.</p>
+          </div>
+        </div>
+
+        <div class="tile" id="hdi" style="grid-column:1 / -1">
+          <div class="content">
+            <b>HDI Highlights zur Berufshaftpflicht</b>
+            <div class="list" style="margin-top:12px">
+              <div class="rowx"><div class="dot">✓</div><div><b>Professionelles Schadenmanagement</b><div>Ausschließlich durch Rechtsanwälte sowie kompetente Ansprechpartner im Underwriting und Schadenbereich.</div></div></div>
+              <div class="rowx"><div class="dot">✓</div><div><b>Honorarschutz und Nachmeldefrist</b><div>Beitragsfrei mitversicherter Honorarschutz sowie zeitlich unbegrenzte Nachmeldefrist – auch bei Berufsaufgabe.</div></div></div>
+              <div class="rowx"><div class="dot">✓</div><div><b>Aktuelle Leistungsbausteine</b><div>Zum Beispiel Leistungs-Update-Garantie, Versehensklausel, BIM, Schlichtung und Mediation oder Abwehrrechtsschutz bei Bauzeitüberschreitung.</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tile narrow">
+          <div class="visual v3"></div>
+          <div class="content">
+            <b>Klare Einordnung</b>
+            <p>Kurze Anfrage, strukturierte Rückmeldung und nachvollziehbare nächste Schritte.</p>
+          </div>
+        </div>
+
+        <div class="tile narrow">
+          <div class="visual v4"></div>
+          <div class="content">
+            <b>Für bestehende Büros</b>
+            <p>Bestehende Absicherung auf Aktualität, Leistungsumfang und berufsspezifische Lücken prüfen.</p>
+          </div>
+        </div>
+
+        <div class="tile narrow">
+          <div class="visual v5"></div>
+          <div class="content">
+            <b>Für Gründer und Spezialbereiche</b>
+            <p>Passgenaue Lösungen, zum Beispiel für Existenzgründer oder Ingenieure im Maschinen- und Anlagenbau.</p>
+          </div>
+        </div>
       </div>
+    </div>
+
+    <div class="card sideSticky" id="formular">
+      <h2>Kostenfreien Check anfragen</h2>
+      <div class="fineprint" style="margin-bottom:10px">Unverbindlich · zeitnahe Rückmeldung · Deutschlandweit</div>
+
+      <form id="leadForm" action="https://formspree.io/f/xkogldbd" method="POST" novalidate>
+        <input type="hidden" name="landingpage" value="LP Berufshaftpflicht Architekten Ingenieure" />
+        <input type="hidden" name="zielgruppe" value="Architekten und Ingenieure" />
+        <input type="hidden" name="anfrage" value="Berufshaftpflicht Check" />
+
+        <div class="hidden-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="name">Name*</label>
+            <input id="name" name="name" required placeholder="Max Mustermann" autocomplete="name" />
+          </div>
+          <div>
+            <label for="phone">Telefon*</label>
+            <input id="phone" name="phone" required placeholder="+49" autocomplete="tel" />
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="email">E-Mail*</label>
+            <input id="email" name="email" type="email" required placeholder="name@mail.de" autocomplete="email" />
+          </div>
+          <div>
+            <label for="profession">Tätigkeit*</label>
+            <select id="profession" name="profession" required>
+              <option value="" selected disabled>Bitte auswählen</option>
+              <option value="Ingenieur">Ingenieur</option>
+              <option value="Architekt">Architekt</option>
+              <option value="Ingenieurbuero">Ingenieurbüro</option>
+              <option value="Architekturbuero">Architekturbüro</option>
+              <option value="Existenzgruender">Existenzgründer</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="details">Kurze Einordnung Ihrer Tätigkeit (optional)</label>
+          <textarea id="details" name="details" placeholder="z. B. Bauüberwachung, Planung, Projektleitung, BIM, Bürogröße oder bestehende Absicherung"></textarea>
+        </div>
+
+        <div class="consent">
+          <input id="consent" name="consent" type="checkbox" required />
+          <div>
+            Ich willige ein, dass meine Angaben zur Bearbeitung meiner Anfrage, zur Kontaktaufnahme (auch telefonisch) sowie zur Beratung und Vermittlung von Versicherungsprodukten verarbeitet werden.
+            <a href="datenschutz.html" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>
+            gelesen.*
+          </div>
+        </div>
+
+        <button class="btn primary" id="submitBtn" type="submit">Kostenfreien Check anfragen</button>
+        <div id="formStatus" class="statusMessage" role="status" aria-live="polite"></div>
+
+        <div class="fineprint">
+          Transparenzhinweis: Es wird eine Beratung angeboten. Die Beratung und Vermittlung erfolgen als Versicherungsvertreter der HDI Versicherung AG gemäß § 34d Abs. 1 GewO.
+        </div>
+      </form>
     </div>
   </div>
 
+  <section class="contact-section">
+    <div class="contact-box">
+      <div class="contact-card">
+        <div class="contact-left">
+          <strong>HDI Hauptvertretung Farshid Tehrani</strong>
+          <span>Deutschlandweit · Bonn</span>
+          <div class="contact-phone">Telefon <b>0155 665 18 738</b></div>
+        </div>
+        <div class="contact-right">
+          <a href="mailto:farshid.tehrani@hdi.de">E-Mail</a>
+          <a href="./impressum.html">Impressum</a>
+          <a href="./datenschutz.html">Datenschutz</a>
+          <a href="./cookie-richtlinie.html">Cookie-Richtlinie</a>
+        </div>
+      </div>
+
+      <div class="contact-meta">
+        St. Augustiner Str. 133, 53225 Bonn · Versicherungsvertreter gemäß § 34d Abs. 1 GewO<br>
+        Es wird eine Beratung angeboten. Beratung und Vermittlung erfolgen als Versicherungsvertreter der HDI Versicherung AG.<br>
+        Registriert im Vermittlerregister der DIHK · Registrierungsnummer: D-HQ16-9MJZU-08<br><br>
+        <a href="https://www.vermittlerregister.info/" target="_blank" rel="noopener noreferrer">vermittlerregister.info</a> ·
+        <a href="#" id="resetCookieSettingsLink">Cookie-Einstellungen zurücksetzen</a>
+      </div>
+
+      <div class="contact-copy">© HDI Hauptvertretung Farshid Tehrani</div>
+    </div>
+  </section>
+
+  <div class="cookieModalOverlay" id="cookieBanner">
+    <div class="cookieBanner" role="dialog" aria-modal="true" aria-labelledby="cookieTitle">
+      <div class="cookieTitle" id="cookieTitle">Cookie-Zustimmung verwalten</div>
+      <p class="cookieSub">Bitte wählen Sie, welche optionalen Technologien auf dieser Website verwendet werden dürfen.</p>
+      <div class="cookieText">
+        Diese Website speichert technisch notwendige Informationen, damit Ihre Einwilligungsentscheidung berücksichtigt werden kann. Optionale Marketing-Technologien sind derzeit nur technisch vorbereitet und werden erst nach gesonderter Aktivierung und – soweit erforderlich – Ihrer ausdrücklichen Einwilligung eingesetzt.
+      </div>
+      <a class="cookieManage" href="#" id="resetCookieSettingsInline">Cookie-Einstellungen verwalten</a>
+      <div class="cookieActions">
+        <button class="cookieBtn primary" id="cookieAccept" type="button">Auswahl speichern</button>
+        <button class="cookieBtn" id="cookieDecline" type="button">Ablehnen</button>
+        <button class="cookieBtn ghost" id="cookieOnlyNecessary" type="button">Nur notwendige</button>
+      </div>
+      <div class="cookieLinks">
+        <a href="cookie-richtlinie.html" target="_blank" rel="noopener noreferrer">Cookie-Richtlinie</a>
+        <a href="datenschutz.html" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+        <a href="impressum.html" target="_blank" rel="noopener noreferrer">Impressum</a>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
