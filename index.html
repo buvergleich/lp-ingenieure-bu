@@ -102,7 +102,11 @@ input:focus,select:focus,textarea:focus{background:#fff;border-color:rgba(15,123
 .contact-section{padding:14px 0 0}
 .contact-box{background:#f1f4f2;border-radius:20px;padding:24px}
 .contact-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.contact-left{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap}
 .contact-left strong{display:block}
+.contact-brand-logo{width:118px;flex:0 0 118px}
+.contact-brand-logo img{width:100%;height:auto;object-fit:contain}
+.contact-brand-copy{min-width:220px;flex:1 1 220px}
 .contact-right{display:flex;gap:16px;flex-wrap:wrap}
 .contact-right a,.contact-meta a{text-decoration:none;color:var(--brand3);font-weight:800}
 .contact-meta,.contact-copy{text-align:center;color:#6b7c72;font-size:12px;margin-top:14px;line-height:1.55}
@@ -166,6 +170,7 @@ input:focus,select:focus,textarea:focus{background:#fff;border-color:rgba(15,123
   .contact-card{padding:14px}
   .contact-right{width:100%;gap:12px}
   .contact-right a{font-size:14px}
+  .contact-brand-logo{width:88px;flex:0 0 88px}
   .contact-meta,.contact-copy,.fineprint{font-size:12px}
   .cookieModalOverlay{padding:12px}
   .cookieBanner{padding:22px 18px 18px;border-radius:20px}
@@ -418,9 +423,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     <div class="contact-box">
       <div class="contact-card">
         <div class="contact-left">
-          <strong>HDI Hauptvertretung Farshid Tehrani</strong>
-          <span>Deutschlandweit · Bonn</span>
-          <div class="contact-phone">Telefon <b>0155 665 18 738</b></div>
+          <div class="contact-brand-logo"><img src="assets/Logo.png" alt="HDI Logo"></div>
+          <div class="contact-brand-copy">
+            <strong>HDI Hauptvertretung Farshid Tehrani</strong>
+            <span>Deutschlandweit · Bonn</span>
+            <div class="contact-phone">Telefon <b>0155 665 18 738</b></div>
+          </div>
         </div>
         <div class="contact-right">
           <a href="mailto:farshid.tehrani@hdi.de">E-Mail</a>
